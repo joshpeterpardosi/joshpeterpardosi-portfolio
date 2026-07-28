@@ -1,1157 +1,433 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Josh Peter Pardosi — Data Science Portfolio</title>
-    <meta
-      name="description"
-      content="Data Science Portfolio of Josh Peter Pardosi — Undergraduate Computer Science Student at Universitas Sumatera Utara, Data Scientist Cohort at Coding Camp, Python & SQL practitioner based in Batam."
-    />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&family=JetBrains+Mono:wght@400;500&display=swap"
-      rel="stylesheet"
-    />
-    <style>
-      :root {
-        --bg: #060a12;
-        --surface: #0c111c;
-        --card: #101828;
-        --card-h: #152035;
-        --border: #1a2540;
-        --accent: #00c9a7;
-        --accent-a: rgba(0, 201, 167, 0.12);
-        --text: #dde4ee;
-        --muted: #5d6e8a;
-        --mono: "JetBrains Mono", monospace;
-        --body: "DM Sans", sans-serif;
-        --disp: "Syne", sans-serif;
-      }
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-      }
-      html {
-        scroll-behavior: smooth;
-      }
-      body {
-        background: var(--bg);
-        color: var(--text);
-        font-family: var(--body);
-        font-size: 16px;
-        line-height: 1.7;
-        overflow-x: hidden;
-      }
-      body::before {
-        content: "";
-        position: fixed;
-        inset: 0;
-        background-image:
-          linear-gradient(rgba(0, 201, 167, 0.025) 1px, transparent 1px),
-          linear-gradient(90deg, rgba(0, 201, 167, 0.025) 1px, transparent 1px);
-        background-size: 44px 44px;
-        pointer-events: none;
-        z-index: 0;
-      }
-      nav {
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        z-index: 100;
-        background: rgba(6, 10, 18, 0.9);
-        backdrop-filter: blur(14px);
-        border-bottom: 1px solid var(--border);
-        height: 62px;
-        padding: 0 8%;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-      }
-      .logo {
-        font-family: var(--disp);
-        font-weight: 700;
-        font-size: 1.05rem;
-        color: var(--text);
-        text-decoration: none;
-      }
-      .logo span {
-        color: var(--accent);
-      }
-      .nav-links {
-        display: flex;
-        gap: 2rem;
-        list-style: none;
-      }
-      .nav-links a {
-        font-family: var(--mono);
-        font-size: 0.72rem;
-        color: var(--muted);
-        text-decoration: none;
-        letter-spacing: 0.06em;
-        transition: color 0.2s;
-      }
-      .nav-links a:hover,
-      .nav-links a.active {
-        color: var(--accent);
-      }
-      section {
-        position: relative;
-        z-index: 1;
-        padding: 110px 8%;
-      }
-      #hero {
-        min-height: 100vh;
-        display: flex;
-        align-items: center;
-        padding-top: 62px;
-      }
-      .hero-inner {
-        display: grid;
-        grid-template-columns: 1fr auto;
-        gap: 4rem;
-        align-items: center;
-        width: 100%;
-      }
-      .hero-tag {
-        font-family: var(--mono);
-        font-size: 0.73rem;
-        color: var(--accent);
-        letter-spacing: 0.16em;
-        text-transform: uppercase;
-        margin-bottom: 1.5rem;
-        display: flex;
-        align-items: center;
-        gap: 0.75rem;
-      }
-      .hero-tag::before {
-        content: "";
-        display: block;
-        width: 36px;
-        height: 1px;
-        background: var(--accent);
-      }
-      h1.hero-name {
-        font-family: var(--disp);
-        font-size: clamp(2.8rem, 6vw, 5rem);
-        font-weight: 800;
-        line-height: 1.06;
-        margin-bottom: 0.5rem;
-        letter-spacing: -0.02em;
-      }
-      h1.hero-name span {
-        color: var(--accent);
-      }
-      .hero-role {
-        font-family: var(--mono);
-        font-size: 0.8rem;
-        color: var(--muted);
-        margin-bottom: 1.5rem;
-        letter-spacing: 0.03em;
-      }
-      .hero-role strong {
-        color: var(--accent);
-        font-weight: 500;
-      }
-      .hero-sub {
-        font-size: 1rem;
-        color: var(--muted);
-        max-width: 500px;
-        margin-bottom: 2.5rem;
-        font-weight: 300;
-        line-height: 1.75;
-      }
-      .hero-sub strong {
-        color: var(--text);
-        font-weight: 500;
-      }
-      .btns {
-        display: flex;
-        gap: 1rem;
-        flex-wrap: wrap;
-      }
-      .btn {
-        display: inline-flex;
-        align-items: center;
-        gap: 0.5rem;
-        padding: 0.72rem 1.4rem;
-        border-radius: 7px;
-        font-family: var(--mono);
-        font-size: 0.76rem;
-        letter-spacing: 0.05em;
-        cursor: pointer;
-        transition: all 0.22s;
-        text-decoration: none;
-        border: none;
-      }
-      .btn-p {
-        background: var(--accent);
-        color: #06090f;
-        font-weight: 600;
-      }
-      .btn-p:hover {
-        background: #00dbb8;
-        transform: translateY(-2px);
-        box-shadow: 0 8px 24px rgba(0, 201, 167, 0.28);
-      }
-      .btn-o {
-        border: 1px solid var(--border);
-        color: var(--text);
-        background: transparent;
-      }
-      .btn-o:hover {
-        border-color: var(--accent);
-        color: var(--accent);
-        transform: translateY(-2px);
-      }
-      .hero-stats {
-        display: flex;
-        gap: 2.5rem;
-        margin-top: 3.5rem;
-        padding-top: 2rem;
-        border-top: 1px solid var(--border);
-        flex-wrap: wrap;
-      }
-      .stat-num {
-        font-family: var(--disp);
-        font-size: 1.9rem;
-        font-weight: 800;
-        color: var(--accent);
-        line-height: 1;
-      }
-      .stat-lbl {
-        font-family: var(--mono);
-        font-size: 0.65rem;
-        color: var(--muted);
-        text-transform: uppercase;
-        letter-spacing: 0.1em;
-        margin-top: 0.3rem;
-      }
-      .photo-wrap {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 1rem;
-        flex-shrink: 0;
-      }
-      .photo-ring {
-        width: 210px;
-        height: 210px;
-        border-radius: 50%;
-        padding: 3px;
-        background: conic-gradient(
-          var(--accent) 0deg 120deg,
-          transparent 120deg
-        );
-        position: relative;
-      }
-      .photo-inner {
-        width: 100%;
-        height: 100%;
-        border-radius: 50%;
-        overflow: hidden;
-        background: var(--card);
-        border: 2px solid var(--border);
-      }
-      .photo-inner img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        object-position: center top;
-      }
-      .photo-placeholder {
-        width: 100%;
-        height: 100%;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        gap: 0.4rem;
-        color: var(--muted);
-        font-family: var(--mono);
-        font-size: 0.6rem;
-        text-align: center;
-        padding: 1rem;
-        line-height: 1.6;
-      }
-      .photo-placeholder .ico {
-        font-size: 2.2rem;
-        margin-bottom: 0.2rem;
-        opacity: 0.35;
-      }
-      .photo-badge {
-        font-family: var(--mono);
-        font-size: 0.64rem;
-        color: var(--accent);
-        background: var(--accent-a);
-        border: 1px solid rgba(0, 201, 167, 0.25);
-        padding: 0.28rem 0.75rem;
-        border-radius: 20px;
-        letter-spacing: 0.08em;
-        text-transform: uppercase;
-      }
-      .sec-lbl {
-        font-family: var(--mono);
-        font-size: 0.72rem;
-        color: var(--accent);
-        letter-spacing: 0.16em;
-        text-transform: uppercase;
-        margin-bottom: 0.75rem;
-      }
-      .sec-title {
-        font-family: var(--disp);
-        font-size: clamp(1.7rem, 3.5vw, 2.4rem);
-        font-weight: 700;
-        margin-bottom: 1rem;
-        letter-spacing: -0.02em;
-      }
-      .sec-div {
-        width: 44px;
-        height: 3px;
-        background: var(--accent);
-        margin-bottom: 3rem;
-        border-radius: 2px;
-      }
-      .about-grid {
-        display: grid;
-        grid-template-columns: 1.4fr 1fr;
-        gap: 5rem;
-        align-items: start;
-      }
-      .about-text p {
-        color: var(--muted);
-        margin-bottom: 1.1rem;
-        font-size: 1rem;
-      }
-      .about-text p strong {
-        color: var(--text);
-      }
-      .about-cards {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 1rem;
-      }
-      .a-card {
-        background: var(--card);
-        border: 1px solid var(--border);
-        border-radius: 12px;
-        padding: 1.4rem;
-        text-align: center;
-      }
-      .a-num {
-        font-family: var(--disp);
-        font-size: 1.9rem;
-        font-weight: 800;
-        color: var(--accent);
-      }
-      .a-lbl {
-        font-family: var(--mono);
-        font-size: 0.62rem;
-        color: var(--muted);
-        text-transform: uppercase;
-        letter-spacing: 0.09em;
-        margin-top: 0.3rem;
-        line-height: 1.4;
-      }
-      .highlight-box {
-        background: var(--accent-a);
-        border: 1px solid rgba(0, 201, 167, 0.2);
-        border-radius: 10px;
-        padding: 1rem 1.35rem;
-        margin-top: 1.5rem;
-        font-size: 0.9rem;
-        color: var(--text);
-      }
-      .highlight-box span {
-        color: var(--accent);
-        font-family: var(--mono);
-        font-size: 0.78rem;
-      }
-      .proj-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-        gap: 1.5rem;
-      }
-      .proj-card {
-        background: var(--card);
-        border: 1px solid var(--border);
-        border-radius: 14px;
-        padding: 1.75rem;
-        display: flex;
-        flex-direction: column;
-        gap: 1rem;
-        transition: all 0.25s;
-      }
-      .proj-card:hover {
-        background: var(--card-h);
-        border-color: var(--accent);
-        transform: translateY(-4px);
-        box-shadow: 0 16px 48px rgba(0, 201, 167, 0.1);
-      }
-      .proj-type {
-        font-family: var(--mono);
-        font-size: 0.67rem;
-        color: var(--accent);
-        text-transform: uppercase;
-        letter-spacing: 0.12em;
-      }
-      .proj-title {
-        font-family: var(--disp);
-        font-size: 1.05rem;
-        font-weight: 700;
-        color: var(--text);
-        line-height: 1.3;
-      }
-      .proj-desc {
-        font-size: 0.87rem;
-        color: var(--muted);
-        line-height: 1.65;
-        flex: 1;
-      }
-      .tags {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 0.4rem;
-      }
-      .tag {
-        font-family: var(--mono);
-        font-size: 0.66rem;
-        padding: 0.22rem 0.55rem;
-        border-radius: 4px;
-        background: var(--accent-a);
-        color: var(--accent);
-      }
-      .proj-link {
-        display: inline-flex;
-        align-items: center;
-        gap: 0.4rem;
-        font-family: var(--mono);
-        font-size: 0.72rem;
-        color: var(--muted);
-        text-decoration: none;
-        transition: color 0.2s;
-        margin-top: auto;
-        padding-top: 0.5rem;
-        border-top: 1px solid var(--border);
-      }
-      .proj-link:hover {
-        color: var(--accent);
-      }
-      .skills-layout {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-        gap: 1.2rem;
-      }
-      .sk-group {
-        background: var(--card);
-        border: 1px solid var(--border);
-        border-radius: 12px;
-        padding: 1.4rem;
-      }
-      .sk-title {
-        font-family: var(--mono);
-        font-size: 0.67rem;
-        color: var(--accent);
-        text-transform: uppercase;
-        letter-spacing: 0.12em;
-        margin-bottom: 0.9rem;
-      }
-      .sk-tags {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 0.4rem;
-      }
-      .sk-tag {
-        font-family: var(--mono);
-        font-size: 0.72rem;
-        padding: 0.3rem 0.7rem;
-        border-radius: 6px;
-        background: rgba(255, 255, 255, 0.04);
-        border: 1px solid var(--border);
-        color: var(--text);
-        transition: all 0.2s;
-      }
-      .sk-tag:hover {
-        border-color: var(--accent);
-        color: var(--accent);
-      }
-      .certs-grid {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 1.5rem;
-      }
-      .cert-g {
-        background: var(--card);
-        border: 1px solid var(--border);
-        border-radius: 12px;
-        padding: 1.75rem;
-      }
-      .cert-g-title {
-        font-family: var(--disp);
-        font-size: 0.92rem;
-        font-weight: 700;
-        margin-bottom: 1.2rem;
-        padding-bottom: 0.75rem;
-        border-bottom: 1px solid var(--border);
-        line-height: 1.5;
-      }
-      .cert-item {
-        display: flex;
-        align-items: flex-start;
-        gap: 0.75rem;
-        padding: 0.42rem 0;
-        font-size: 0.86rem;
-        color: var(--muted);
-      }
-      .cdot {
-        width: 6px;
-        height: 6px;
-        border-radius: 50%;
-        background: var(--accent);
-        margin-top: 0.58rem;
-        flex-shrink: 0;
-      }
-      #resume {
-        text-align: center;
-      }
-      #resume .sec-div {
-        margin: 0 auto 2.5rem;
-      }
-      .resume-card {
-        display: inline-flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 1.25rem;
-        background: var(--card);
-        border: 1px solid var(--border);
-        border-radius: 16px;
-        padding: 2.5rem 3.5rem;
-        max-width: 440px;
-        width: 100%;
-      }
-      .resume-icon {
-        font-size: 2.2rem;
-        opacity: 0.55;
-      }
-      .resume-desc {
-        color: var(--muted);
-        font-size: 0.92rem;
-        text-align: center;
-        line-height: 1.7;
-      }
-      .resume-desc strong {
-        color: var(--text);
-      }
-      #contact {
-        text-align: center;
-      }
-      #contact .sec-div {
-        margin: 0 auto 3rem;
-      }
-      .c-sub {
-        color: var(--muted);
-        max-width: 440px;
-        margin: 0 auto;
-        font-size: 1rem;
-      }
-      .c-sub strong {
-        color: var(--text);
-      }
-      .c-email {
-        font-family: var(--disp);
-        font-size: clamp(1.3rem, 3vw, 2rem);
-        font-weight: 700;
-        color: var(--accent);
-        text-decoration: none;
-        display: block;
-        margin: 1.75rem auto;
-        transition: opacity 0.2s;
-      }
-      .c-email:hover {
-        opacity: 0.7;
-      }
-      .c-links {
-        display: flex;
-        justify-content: center;
-        gap: 1rem;
-        margin-top: 1.5rem;
-        flex-wrap: wrap;
-      }
-      .c-link {
-        font-family: var(--mono);
-        font-size: 0.76rem;
-        color: var(--muted);
-        text-decoration: none;
-        padding: 0.58rem 1.1rem;
-        border: 1px solid var(--border);
-        border-radius: 6px;
-        transition: all 0.2s;
-        letter-spacing: 0.04em;
-      }
-      .c-link:hover {
-        color: var(--accent);
-        border-color: var(--accent);
-      }
-      footer {
-        text-align: center;
-        padding: 2rem 8%;
-        border-top: 1px solid var(--border);
-        font-family: var(--mono);
-        font-size: 0.67rem;
-        color: var(--muted);
-        position: relative;
-        z-index: 1;
-      }
-      .reveal {
-        opacity: 0;
-        transform: translateY(20px);
-        transition:
-          opacity 0.55s ease,
-          transform 0.55s ease;
-      }
-      .reveal.visible {
-        opacity: 1;
-        transform: translateY(0);
-      }
-      .d1 {
-        transition-delay: 0.1s;
-      }
-      .d2 {
-        transition-delay: 0.2s;
-      }
-      .d3 {
-        transition-delay: 0.3s;
-      }
-      @media (max-width: 900px) {
-        .hero-inner {
-          grid-template-columns: 1fr;
-        }
-        .photo-wrap {
-          display: none;
-        }
-        .about-grid {
-          grid-template-columns: 1fr;
-          gap: 2.5rem;
-        }
-        .certs-grid {
-          grid-template-columns: 1fr;
-        }
-      }
-      @media (max-width: 640px) {
-        section {
-          padding: 80px 6%;
-        }
-        nav {
-          padding: 0 6%;
-        }
-        .nav-links {
-          display: none;
-        }
-        .hero-stats {
-          gap: 1.5rem;
-        }
-        .proj-grid {
-          grid-template-columns: 1fr;
-        }
-      }
-    </style>
-  </head>
-  <body>
-    <nav>
-      <a href="#hero" class="logo">josh<span>.</span>dev</a>
-      <ul class="nav-links">
-        <li><a href="#about">about</a></li>
-        <li><a href="#projects">projects</a></li>
-        <li><a href="#skills">skills</a></li>
-        <li><a href="#certs">certs</a></li>
-        <li><a href="#resume">resume</a></li>
-        <li><a href="#contact">contact</a></li>
-      </ul>
-    </nav>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Josh Peter Pardosi — Data Analytics Portfolio</title>
+<meta name="description" content="Computer Science undergraduate at Universitas Sumatera Utara. A/B testing, time series forecasting, and dashboard development. Seeking a Data Analyst internship.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500&family=Inter:wght@400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#FFFFFF; --border:#E6E8EB; --ink:#111418; --muted:#5B6570; --accent:#2563EB;
+  --serif:"Newsreader",Georgia,serif;
+  --sans:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
+  --mono:"JetBrains Mono",ui-monospace,"SFMono-Regular",Consolas,monospace;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0; background:var(--bg); color:var(--ink);
+  font-family:var(--sans); font-size:17px; line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+}
+a{color:var(--accent); text-decoration:none; transition:color .15s ease}
+a:hover{text-decoration:underline; text-underline-offset:4px; text-decoration-thickness:1px}
+h1,h2,h3{font-family:var(--serif); font-weight:400; letter-spacing:-.02em; margin:0}
+p{margin:0}
+img{display:block; max-width:100%}
 
-    <section id="hero">
-      <div class="hero-inner">
-        <div>
-          <div class="hero-tag">Data Science Portfolio</div>
-          <h1 class="hero-name">Josh Peter<br /><span>Pardosi</span></h1>
-          <p class="hero-role">
-            Undergraduate Computer Science Student &nbsp;·&nbsp;
-            <strong>Universitas Sumatera Utara</strong>
-          </p>
-          <p class="hero-sub">
-            Data Scientist Cohort at
-            <strong>Coding Camp powered by DBS Foundation</strong>. Building
-            expertise in <strong>Python, SQL & Data Analytics</strong>. Based in
-            Batam, Indonesia.
-          </p>
-          <div class="btns">
-            <a href="#projects" class="btn btn-p">View Projects ↓</a>
-            <a
-              href="https://github.com/JoshPardosi-231401031"
-              target="_blank"
-              class="btn btn-o"
-              >GitHub</a
-            >
-            <a
-              href="https://www.linkedin.com/in/josh-peter-pardosi-44ab612aa/"
-              target="_blank"
-              class="btn btn-o"
-              >LinkedIn</a
-            >
-          </div>
-          <div class="hero-stats">
-            <div>
-              <div class="stat-num">3.68</div>
-              <div class="stat-lbl">GPA / 4.00</div>
-            </div>
-            <div>
-              <div class="stat-num">14+</div>
-              <div class="stat-lbl">Certifications</div>
-            </div>
-            <div>
-              <div class="stat-num">5</div>
-              <div class="stat-lbl">Portfolio Projects</div>
-            </div>
-            <div>
-              <div class="stat-num">2y+</div>
-              <div class="stat-lbl">Teaching Exp.</div>
-            </div>
-          </div>
-        </div>
-        <div class="photo-wrap">
-          <div class="photo-ring">
-            <div class="photo-inner">
-              <img src="photo.jpg" alt="Josh Peter Pardosi" />
-            </div>
-          </div>
-          <div class="photo-badge">Open to Intern</div>
+.wrap{max-width:1120px; margin:0 auto; padding:0 24px}
+.text-col{max-width:680px}
+.label{font-family:var(--mono); font-size:12px; font-weight:500; text-transform:uppercase; letter-spacing:.08em}
+.mono{font-family:var(--mono); font-size:13px; letter-spacing:0}
+.muted{color:var(--muted)}
+.rule{border:0; border-top:1px solid var(--border); margin:0}
+
+/* ---------- nav ---------- */
+.nav{position:sticky; top:0; z-index:50; background:#fff; border-bottom:1px solid var(--border)}
+.nav-in{display:flex; align-items:flex-end; justify-content:space-between; gap:24px; padding:16px 0}
+.wordmark{font-family:var(--serif); font-size:21px; line-height:1.2; color:var(--ink); display:block}
+.wordmark:hover{text-decoration:none}
+.tagline{color:var(--muted); margin-top:2px}
+.nav-links{display:flex; gap:24px}
+.nav-links a{color:var(--muted)}
+.nav-links a:hover{color:var(--accent); text-decoration:none}
+.nav-links a.is-active{color:var(--accent); border-bottom:1px solid var(--accent); padding-bottom:2px}
+
+/* ---------- sections ---------- */
+section{padding:96px 0}
+.sec-head{margin-bottom:40px}
+.sec-num{color:var(--accent); display:block; margin-bottom:8px}
+.sec-title{font-size:34px; line-height:1.2}
+
+/* ---------- hero ---------- */
+.hero{display:flex; gap:64px; align-items:flex-start; justify-content:space-between}
+.hero-text{flex:1 1 auto; max-width:680px}
+h1{font-size:56px; line-height:1.08; margin-bottom:16px}
+.hero-sub{font-size:17px; margin-bottom:16px}
+.hero-pos{color:var(--muted); margin-bottom:40px}
+.stats{display:flex; flex-wrap:wrap; align-items:center; gap:16px; margin-bottom:0}
+.stats .sep{color:var(--border)}
+.stat b{font-weight:500; font-variant-numeric:tabular-nums}
+.hero-links{display:flex; flex-wrap:wrap; gap:24px}
+.portrait{flex:0 0 auto; width:200px; height:200px; border:1px solid var(--border)}
+.portrait img{width:100%; height:100%; object-fit:cover}
+
+/* ---------- featured cards ---------- */
+.cards{display:flex; flex-direction:column; gap:24px}
+.card{display:flex; gap:32px; border:1px solid var(--border); padding:24px; transition:transform .2s ease, border-color .2s ease}
+.card:hover{transform:translateY(-2px); border-color:#D3D7DC}
+.shot{flex:0 0 46%; align-self:flex-start; border:1px solid var(--border); background:#fff; aspect-ratio:16/10; overflow:hidden}
+.shot img{width:100%; height:100%; object-fit:contain; object-position:center top; background:#fff}
+.card-body{flex:1 1 auto; min-width:0}
+.card h3{font-size:24px; line-height:1.25; margin-bottom:8px}
+.card .stack{color:var(--muted); margin-bottom:8px}
+.card .summary{color:var(--muted); margin-bottom:16px}
+.result{font-family:var(--serif); font-size:21px; line-height:1.4; color:var(--ink); margin-bottom:8px}
+.caveat{font-size:14px; font-style:italic; color:var(--muted); margin-bottom:16px}
+.card-link{display:inline-block; font-family:var(--mono); font-size:14px}
+.url-cap{display:none; color:var(--muted); margin-top:4px; word-break:break-all}
+
+/* ---------- list rows ---------- */
+.rows{border-top:1px solid var(--border)}
+.row{display:flex; align-items:baseline; justify-content:space-between; gap:24px; padding:16px 0; border-bottom:1px solid var(--border)}
+.row h3{font-family:var(--sans); font-size:17px; font-weight:500; letter-spacing:0}
+.row .stack{color:var(--muted); margin-top:2px}
+.row a{font-family:var(--mono); font-size:14px; white-space:nowrap}
+
+/* ---------- skills ---------- */
+.skill-row{display:flex; gap:40px; padding:16px 0; border-bottom:1px solid var(--border)}
+.skill-row:first-child{border-top:1px solid var(--border)}
+.skill-key{flex:0 0 180px; color:var(--muted); padding-top:5px}
+.skill-val{flex:1 1 auto; min-width:0}
+
+/* ---------- about ---------- */
+.about p+p{margin-top:16px}
+
+/* ---------- footer ---------- */
+footer{border-top:1px solid var(--border); background:#fff; padding:96px 0 40px}
+.foot-cols{display:flex; gap:64px; align-items:flex-start; margin-bottom:64px}
+.foot-left{flex:1 1 auto; max-width:460px}
+.foot-right{flex:0 0 460px; max-width:460px}
+.foot-lead{font-family:var(--serif); font-size:24px; line-height:1.35; margin-bottom:16px}
+.foot-note{color:var(--muted); font-size:15px}
+.c-row{display:flex; align-items:baseline; gap:24px; padding:12px 0; border-bottom:1px solid var(--border)}
+.c-row:first-child{border-top:1px solid var(--border)}
+.c-key{flex:0 0 84px; color:var(--muted)}
+.c-val{flex:1 1 auto; min-width:0; font-size:15px; word-break:break-word}
+.copy{color:var(--muted)}
+
+/* ---------- motion ----------
+   Gated on .js so the page is fully visible if JavaScript fails to run. */
+.js .reveal{opacity:0; transform:translateY(12px); transition:opacity .2s ease-out, transform .2s ease-out}
+.js .reveal.in{opacity:1; transform:none}
+@media (prefers-reduced-motion:reduce){.js .reveal{opacity:1; transform:none; transition:none}}
+
+/* ---------- responsive ---------- */
+@media (max-width:900px){
+  .card{flex-direction:column; gap:24px}
+  .shot{flex:none; width:100%}
+}
+@media (max-width:768px){
+  body{font-size:16px}
+  section{padding:64px 0}
+  h1{font-size:36px}
+  .sec-title{font-size:28px}
+  .hero{flex-direction:column-reverse; align-items:flex-start; gap:24px}
+  .portrait{width:140px; height:140px}
+  .nav-links{display:none}
+  .row{flex-direction:column; align-items:flex-start; gap:8px}
+  .skill-row{flex-direction:column; gap:8px}
+  .skill-key{flex:none; padding-top:0}
+  .foot-cols{flex-direction:column; gap:32px; margin-bottom:40px}
+  .foot-right{flex:none; width:100%; max-width:none}
+  .foot-lead{font-size:21px}
+  footer{padding:64px 0 32px}
+}
+
+/* ================= PRINT VIEW (?print=1 and window.print) ================= */
+@page{size:A4; margin:14mm 15mm}
+</style>
+<style media="print">
+  .nav{display:none !important}
+  .print-head{display:block !important}
+  body{font-size:10pt; line-height:1.45}
+  section{padding:14pt 0 !important; break-inside:avoid}
+  .hero{gap:18pt}
+  h1{font-size:24pt}
+  .sec-title{font-size:15pt}
+  .card h3{font-size:12.5pt}
+  .result{font-size:12pt}
+  .card{break-inside:avoid; padding:10pt}
+  .shot{flex:0 0 38%}
+  .foot-cols{gap:18pt}
+  footer{padding:14pt 0 0}
+  a{color:#111418 !important; text-decoration:none !important}
+  .reveal{opacity:1 !important; transform:none !important}
+  .print-only{display:block !important}
+  .url-cap{display:block !important}
+  .shot{max-height:44mm}
+  .card .summary{margin-bottom:8pt}
+  .caveat{margin-bottom:8pt}
+  .foot-lead{font-size:12pt; margin-bottom:12pt}
+  .sec-head{margin-bottom:12pt}
+  .cards{gap:10pt}
+  .stats{margin-bottom:10pt}
+  .hero-pos{margin-bottom:12pt}
+  hr.rule{display:none}
+  *{-webkit-print-color-adjust:exact; print-color-adjust:exact}
+</style>
+<style>
+  .print-only{display:none}
+  body.print-mode .nav{display:none}
+  body.print-mode .print-only{display:block}
+  body.print-mode{font-size:15px}
+  body.print-mode section{padding:32px 0}
+</style>
+</head>
+<body>
+<script>document.documentElement.className+=' js';</script>
+
+<nav class="nav">
+  <div class="wrap nav-in">
+    <div>
+      <a class="wordmark" href="#top">Josh Pardosi</a>
+      <div class="label tagline">Portfolio</div>
+    </div>
+    <div class="nav-links label">
+      <a href="#work">Work</a>
+      <a href="#skills">Skills</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<main id="top">
+
+  <!-- ============ HERO ============ -->
+  <section class="reveal">
+    <div class="wrap hero">
+      <div class="hero-text">
+        <h1>Josh Peter Pardosi</h1>
+        <p class="hero-sub">Computer Science Undergraduate, Universitas Sumatera Utara · Data Scientist Cohort, Coding Camp by DBS Foundation</p>
+        <p class="hero-pos">Building data analysis skills through real projects — experimentation, forecasting, and dashboards. Seeking a Data Analyst internship.</p>
+
+        <div class="stats mono">
+          <span class="stat"><b>3.68 / 4.00</b> GPA</span>
+          <span class="sep">|</span>
+          <span class="stat"><b>15</b> Certifications</span>
+          <span class="sep">|</span>
+          <span class="stat"><b>2+ Years</b> Teaching Mathematics</span>
         </div>
       </div>
-    </section>
 
-    <section id="about">
-      <div class="sec-lbl">01 / About</div>
-      <h2 class="sec-title">The Story Behind the Data</h2>
-      <div class="sec-div"></div>
-      <div class="about-grid">
-        <div class="about-text reveal">
-          <p>
-            I'm an
-            <strong
-              >Undergraduate Computer Science student at Universitas Sumatera
-              Utara</strong
-            >
-            (GPA: 3.68/4.00), currently selected as a
-            <strong
-              >Data Scientist Cohort at Coding Camp powered by DBS
-              Foundation</strong
-            >
-            — a structured, intensive program where I build hands-on expertise
-            in data science from the ground up.
-          </p>
-          <p>
-            For three years I taught Mathematics at the university-entrance
-            level (UTBK/SNBT), including at <strong>SMA Unggul Del</strong> and
-            <strong>SMA Yayasan Sopasurung</strong> — two of North Sumatra's
-            most rigorous schools. That experience shaped how I think: every
-            number must be traceable, every insight must be actionable.
-          </p>
-          <p>
-            Now I channel that same discipline into
-            <strong>Python, SQL, Tableau, and data storytelling</strong> —
-            building skills deliberately, project by project. Based in
-            <strong>Batam, Indonesia</strong>. Actively seeking a Data Analyst
-            or Data Science internship.
-          </p>
+      <div class="portrait">
+        <img src="assets/josh-portrait.jpg" alt="Portrait of Josh Peter Pardosi" width="600" height="600">
+      </div>
+    </div>
+  </section>
+
+  <hr class="rule">
+
+  <!-- ============ 01 FEATURED WORK ============ -->
+  <section id="work" class="reveal">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="label sec-num">01 &mdash; Featured Work</span>
+        <h2 class="sec-title">Two projects, in depth</h2>
+      </div>
+
+      <div class="cards">
+
+        <!-- Card 1 -->
+        <article class="card">
+          <div class="shot">
+            <img src="assets/project-ab-testing.png" alt="Conversion rate by day of week, ad group versus PSA control group" loading="lazy">
+          </div>
+          <div class="card-body">
+            <h3>A/B Testing &mdash; Marketing Campaign Effectiveness</h3>
+            <p class="stack mono">Python · Pandas · SciPy · statsmodels</p>
+            <p class="summary">Analyzed a 588,101-user marketing experiment to measure whether the campaign lifted conversion, then pushed past the p-value into cost sensitivity and ROI scenarios.</p>
+            <p class="result">Detected a statistically robust 43% conversion lift, verified as timing-independent, with 95% confidence intervals.</p>
+            <p class="caveat">Profitability could not be confirmed from this dataset alone — ad cost was not observed, so the ROI figures are scenario-based.</p>
+            <a class="card-link" href="https://github.com/joshpeterpardosi/ab-test-marketing-analysis" target="_blank" rel="noopener">View on GitHub &rarr;</a>
+            <div class="mono url-cap">github.com/joshpeterpardosi/ab-test-marketing-analysis</div>
+          </div>
+        </article>
+
+        <!-- Card 2 -->
+        <article class="card">
+          <div class="shot">
+            <img src="assets/project-sales-forecasting.png" alt="Power BI dashboard showing actual versus forecast daily sales for Favorita retail" loading="lazy">
+          </div>
+          <div class="card-body">
+            <h3>Retail Sales Forecasting &mdash; Time Series</h3>
+            <p class="stack mono">Python · Pandas · statsmodels · PostgreSQL · Power BI</p>
+            <p class="summary">Built an end-to-end pipeline on Corporación Favorita retail sales — Pandas cleaning, a PostgreSQL data model, and a four-page Power BI dashboard covering store performance, promotion effects, and a 90-day forecast.</p>
+            <p class="result">Holt-Winters additive forecasting reduced MAE by 37.6% against a 7-day moving-average baseline.</p>
+            <p class="caveat">RMSE improved far less than MAE, indicating the model still under-forecasts sudden demand spikes — so the forecast is framed as a planning baseline, not an exact prediction.</p>
+            <a class="card-link" href="https://github.com/joshpeterpardosi/sales-forecasting-dashboard" target="_blank" rel="noopener">View on GitHub &rarr;</a>
+            <div class="mono url-cap">github.com/joshpeterpardosi/sales-forecasting-dashboard</div>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <hr class="rule">
+
+  <!-- ============ 02 MORE PROJECTS ============ -->
+  <section class="reveal">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="label sec-num">02 &mdash; More Projects</span>
+        <h2 class="sec-title">Also worth a look</h2>
+      </div>
+
+      <div class="rows">
+        <div class="row">
+          <div>
+            <h3>Global Retail Expansion &amp; Revenue Analysis</h3>
+            <div class="stack mono">Tableau</div>
+          </div>
+          <a href="https://public.tableau.com/shared/R57WQRKWG?:display_count=n&amp;:origin=viz_share_link" target="_blank" rel="noopener">Live Dashboard &rarr;</a>
         </div>
-        <div class="about-cards reveal d1">
-          <div class="a-card">
-            <div class="a-num">3.68</div>
-            <div class="a-lbl">GPA / 4.00</div>
+        <div class="row">
+          <div>
+            <h3>Customer Orders Data Cleaning &amp; Standardization</h3>
+            <div class="stack mono">Python · Pandas</div>
           </div>
-          <div class="a-card">
-            <div class="a-num">8</div>
-            <div class="a-lbl">Coding Camp Certs</div>
-          </div>
-          <div class="a-card">
-            <div class="a-num">6+</div>
-            <div class="a-lbl">DataCamp Certs</div>
-          </div>
-          <div class="a-card">
-            <div class="a-num">15+</div>
-            <div class="a-lbl">Students Mentored</div>
-          </div>
+          <a href="https://github.com/joshpeterpardosi/Python-Data-Cleaning-Project" target="_blank" rel="noopener">GitHub &rarr;</a>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <section id="projects">
-      <div class="sec-lbl">02 / Projects</div>
-      <h2 class="sec-title">What I've Built</h2>
-      <div class="sec-div"></div>
-      <div class="proj-grid">
-        <div class="proj-card reveal">
-          <div class="proj-type">Tableau · Business Intelligence</div>
-          <h3 class="proj-title">Global Retail Expansion & Revenue Analysis</h3>
-          <p class="proj-desc">
-            Built an interactive Tableau Public dashboard analyzing a global
-            online retail dataset to uncover revenue trends, high-value
-            customers, and expansion opportunities. Cleaned the dataset by
-            removing returns and invalid pricing, then designed four
-            strategic views — 2011 revenue forecasting, top revenue-generating
-            countries, VIP customer retention, and global demand mapping —
-            tailored for CEO and CMO decision-making.
-          </p>
-          <div class="tags">
-            <span class="tag">Tableau</span><span class="tag">Tableau Public</span
-            ><span class="tag">Dashboard Design</span
-            ><span class="tag">Business Intelligence</span>
-          </div>
-          <a
-            href="https://public.tableau.com/shared/R57WQRKWG?:display_count=n&:origin=viz_share_link"
-            target="_blank"
-            class="proj-link"
-            >↗ View Live Dashboard</a
-          >
+  <hr class="rule">
+
+  <!-- ============ 03 SKILLS ============ -->
+  <section id="skills" class="reveal">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="label sec-num">03 &mdash; Skills</span>
+        <h2 class="sec-title">What I work with</h2>
+      </div>
+
+      <div>
+        <div class="skill-row">
+          <div class="skill-key label">Tools</div>
+          <div class="skill-val">PostgreSQL, DBeaver, Visual Studio Code, Jupyter Notebook, Google Colab, Git, GitHub, Power BI, Tableau Public, Microsoft Excel</div>
         </div>
-        <div class="proj-card reveal d1">
-          <div class="proj-type">SQL · Data Analysis</div>
-          <h3 class="proj-title">Restaurant Orders & Menu Performance</h3>
-          <p class="proj-desc">
-            Analyzed restaurant order data from Maven Analytics to uncover
-            insights on menu performance and customer purchasing behavior. Wrote
-            multi-table SQL queries — JOINs, GROUP BY, subqueries, aggregations
-            — using PostgreSQL and DBeaver.
-          </p>
-          <div class="tags">
-            <span class="tag">SQL</span><span class="tag">PostgreSQL</span
-            ><span class="tag">DBeaver</span
-            ><span class="tag">Data Analysis</span>
-          </div>
-          <a
-            href="https://github.com/JoshPardosi-231401031/restaurant-orders-sql"
-            target="_blank"
-            class="proj-link"
-            >↗ View on GitHub</a
-          >
+        <div class="skill-row">
+          <div class="skill-key label">Programming</div>
+          <div class="skill-val">Python (Pandas, NumPy, SciPy, statsmodels, Matplotlib, Seaborn), SQL</div>
         </div>
-        <div class="proj-card reveal d2">
-          <div class="proj-type">Python · Data Cleaning</div>
-          <h3 class="proj-title">Customer Order Data Cleaning & Profiling</h3>
-          <p class="proj-desc">
-            Transformed a messy customer orders dataset into an
-            analysis-ready format using Python and Pandas. Standardized
-            inconsistent text and country labels, parsed mixed date formats
-            into structured year / month / weekday features, handled missing
-            values systematically, and flagged logical errors such as zero or
-            negative order quantities — then generated an automated profiling
-            report with ydata-profiling.
-          </p>
-          <div class="tags">
-            <span class="tag">Python</span><span class="tag">Pandas</span
-            ><span class="tag">Data Cleaning</span
-            ><span class="tag">ydata-profiling</span>
-          </div>
-          <a
-            href="https://github.com/JoshPardosi-231401031/Python-Data-Cleaning-Project"
-            target="_blank"
-            class="proj-link"
-            >↗ View on GitHub</a
-          >
+        <div class="skill-row">
+          <div class="skill-key label">Skills</div>
+          <div class="skill-val">Data Cleaning, Exploratory Data Analysis, Hypothesis Testing, A/B Testing, Time Series Forecasting, ETL, Window Functions, CTEs, Dashboard Development, Data Storytelling</div>
         </div>
-        <div class="proj-card reveal d3">
-          <div class="proj-type">EDA · Python</div>
-          <h3 class="proj-title">Student Mental Health Analysis</h3>
-          <p class="proj-desc">
-            Explored a dataset of international students to investigate
-            relationships between study duration, social connectedness, and
-            mental health indicators — depression, anxiety, and homesickness —
-            using EDA and visualization.
-          </p>
-          <div class="tags">
-            <span class="tag">Python</span><span class="tag">Pandas</span
-            ><span class="tag">Matplotlib</span><span class="tag">EDA</span>
+        <div class="skill-row">
+          <div class="skill-key label">Certifications</div>
+          <div class="skill-val">15 courses completed at DataCamp and Dicoding Indonesia — covering SQL, Python, data processing, visualization, and machine learning fundamentals.
+            <a class="mono" style="display:inline-block; margin-left:6px" href="https://www.linkedin.com/in/josh-peter-pardosi-44ab612aa/details/certifications/" target="_blank" rel="noopener">Verify on LinkedIn &rarr;</a>
           </div>
-          <a
-            href="https://github.com/JoshPardosi-231401031/Analyzing-Students-Mental-Health"
-            target="_blank"
-            class="proj-link"
-            >↗ View on GitHub</a
-          >
         </div>
-        <div class="proj-card reveal d1">
-          <div class="proj-type">EDA · Python · Foundational</div>
-          <h3 class="proj-title">Netflix 1990s Movies Analysis</h3>
-          <p class="proj-desc">
-            Analyzed Netflix's catalog to identify duration trends and genre
-            distribution among 1990s films. Applied data filtering, grouping,
-            and aggregation techniques to surface actionable patterns in movie
-            runtimes across genres. Documented findings in reproducible Jupyter
-            notebook — foundational project that established core EDA workflow.
-          </p>
-          <div class="tags">
-            <span class="tag">Python</span><span class="tag">Pandas</span
-            ><span class="tag">Jupyter</span><span class="tag">EDA</span
-            ><span class="tag">Data Analysis</span>
-          </div>
-          <a
-            href="https://github.com/JoshPardosi-231401031/investigating-netflix-movies"
-            target="_blank"
-            class="proj-link"
-            >↗ View on GitHub</a
-          >
+        <div class="skill-row">
+          <div class="skill-key label">Languages</div>
+          <div class="skill-val">English (Fluent), Indonesian (Native)</div>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <section id="skills">
-      <div class="sec-lbl">03 / Skills</div>
-      <h2 class="sec-title">Technical Stack</h2>
-      <div class="sec-div"></div>
-      <div class="skills-layout">
-        <div class="sk-group reveal">
-          <div class="sk-title">Languages</div>
-          <div class="sk-tags">
-            <span class="sk-tag">Python</span><span class="sk-tag">SQL</span>
-          </div>
+  <hr class="rule">
+
+  <!-- ============ 04 ABOUT ============ -->
+  <section id="about" class="reveal">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="label sec-num">04 &mdash; About</span>
+        <h2 class="sec-title">From mathematics to data</h2>
+      </div>
+      <div class="text-col about">
+        <p>My background is mathematics. Studying it, and then spending over two years teaching UTBK/SNBT mathematics to more than twenty students, trained two things I still rely on every day: working a problem in steps that can be checked, and explaining a quantitative result to someone who has no reason to trust it yet.</p>
+        <p>Data is where I spend my time now, and where I want my career to go. Most of that time goes into SQL and Python &mdash; pulling the data, cleaning it, testing whether a difference is real, then building the dashboard that makes the answer obvious. Alongside it I have been learning to work with AI tools, which I treat as part of adapting to how this field actually operates today: I use them for code and for pressure-testing my own reasoning, and verify what they return before it counts. What I am looking for is a Data Analyst internship where all of this runs on data a team actually depends on.</p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ============ 05 CONTACT / FOOTER ============ -->
+<footer id="contact">
+  <div class="wrap reveal">
+    <span class="label sec-num">05 &mdash; Contact</span>
+
+    <div class="foot-cols">
+      <div class="foot-left">
+        <p class="foot-lead">Currently seeking a Data Analyst internship &mdash; open to Data Scientist roles.</p>
+        <p class="foot-note">Based in Batam, open to Medan, Jakarta, and remote.</p>
+      </div>
+
+      <div class="foot-right">
+        <div class="c-row">
+          <div class="c-key label">Email</div>
+          <div class="c-val"><a href="mailto:itsjoshpeter@gmail.com">itsjoshpeter@gmail.com</a></div>
         </div>
-        <div class="sk-group reveal d1">
-          <div class="sk-title">Python Libraries</div>
-          <div class="sk-tags">
-            <span class="sk-tag">Pandas</span><span class="sk-tag">NumPy</span
-            ><span class="sk-tag">Matplotlib</span
-            ><span class="sk-tag">Seaborn</span>
-          </div>
+        <div class="c-row">
+          <div class="c-key label">Phone</div>
+          <div class="c-val"><a href="tel:+6281122225245">+62 811-2222-5245</a></div>
         </div>
-        <div class="sk-group reveal d2">
-          <div class="sk-title">Data Visualization & BI</div>
-          <div class="sk-tags">
-            <span class="sk-tag">Tableau</span
-            ><span class="sk-tag">Tableau Public</span
-            ><span class="sk-tag">Dashboard Design</span
-            ><span class="sk-tag">Business Intelligence</span
-            ><span class="sk-tag">Data Storytelling</span>
-          </div>
+        <div class="c-row">
+          <div class="c-key label">LinkedIn</div>
+          <div class="c-val"><a href="https://www.linkedin.com/in/josh-peter-pardosi-44ab612aa/" target="_blank" rel="noopener">josh-peter-pardosi</a></div>
         </div>
-        <div class="sk-group reveal">
-          <div class="sk-title">Database & Query</div>
-          <div class="sk-tags">
-            <span class="sk-tag">PostgreSQL</span
-            ><span class="sk-tag">DBeaver</span
-            ><span class="sk-tag">SQL (Intermediate)</span>
-          </div>
+        <div class="c-row">
+          <div class="c-key label">GitHub</div>
+          <div class="c-val"><a href="https://github.com/joshpeterpardosi" target="_blank" rel="noopener">joshpeterpardosi</a></div>
         </div>
-        <div class="sk-group reveal d1">
-          <div class="sk-title">Platforms & Tools</div>
-          <div class="sk-tags">
-            <span class="sk-tag">Jupyter Notebook</span
-            ><span class="sk-tag">Google Colab</span
-            ><span class="sk-tag">GitHub</span><span class="sk-tag">Excel</span>
-          </div>
+        <div class="c-row">
+          <div class="c-key label">Resume</div>
+          <div class="c-val"><a href="https://drive.google.com/file/d/1CFjbA9SSnH6z_P5UXqEPdtS3azNIEM0c/view?usp=sharing" target="_blank" rel="noopener">JoshPardosi_Resume.pdf</a></div>
         </div>
-        <div class="sk-group reveal d2">
-          <div class="sk-title">Concepts</div>
-          <div class="sk-tags">
-            <span class="sk-tag">EDA</span
-            ><span class="sk-tag">Data Cleaning</span
-            ><span class="sk-tag">Statistical Analysis</span
-            ><span class="sk-tag">ML Fundamentals</span>
-          </div>
-        </div>
-        <div class="sk-group reveal">
-          <div class="sk-title">Math Foundations</div>
-          <div class="sk-tags">
-            <span class="sk-tag">Calculus</span
-            ><span class="sk-tag">Statistics & Probability</span
-            ><span class="sk-tag">Linear Algebra</span>
-          </div>
+        <div class="c-row">
+          <div class="c-key label">Location</div>
+          <div class="c-val">Batam, Kepulauan Riau, Indonesia</div>
         </div>
       </div>
-    </section>
+    </div>
 
-    <section id="certs">
-      <div class="sec-lbl">04 / Certifications</div>
-      <h2 class="sec-title">Verified Learning Path</h2>
-      <div class="sec-div"></div>
-      <div class="certs-grid">
-        <div class="cert-g reveal">
-          <div class="cert-g-title">
-            Coding Camp powered by DBS Foundation<br /><span
-              style="
-                font-family: var(--mono);
-                font-size: 0.7rem;
-                color: var(--muted);
-                font-weight: 400;
-              "
-              >× Dicoding Indonesia &nbsp;·&nbsp; 2026</span
-            >
-          </div>
-          <div class="cert-item">
-            <div class="cdot"></div>
-            Belajar Dasar Data Science
-          </div>
-          <div class="cert-item">
-            <div class="cdot"></div>
-            Belajar Dasar Visualisasi Data
-          </div>
-          <div class="cert-item">
-            <div class="cdot"></div>
-            Memulai Pemrograman dengan Python
-          </div>
-          <div class="cert-item">
-            <div class="cdot"></div>
-            Belajar Machine Learning untuk Pemula
-          </div>
-          <div class="cert-item">
-            <div class="cdot"></div>
-            Belajar Fundamental Analisis Data
-          </div>
-          <div class="cert-item">
-            <div class="cdot"></div>
-            Belajar Fundamental Pemrosesan Data
-          </div>
-          <div class="cert-item">
-            <div class="cdot"></div>
-            Belajar Matematika untuk Data Science
-          </div>
-          <div class="cert-item">
-            <div class="cdot"></div>
-            Belajar Dasar Git dengan GitHub
-          </div>
-        </div>
-        <div class="cert-g reveal d1">
-          <div class="cert-g-title">
-            DataCamp<br /><span
-              style="
-                font-family: var(--mono);
-                font-size: 0.7rem;
-                color: var(--muted);
-                font-weight: 400;
-              "
-              >Self-Directed &nbsp;·&nbsp; 2025–2026</span
-            >
-          </div>
-          <div class="cert-item">
-            <div class="cdot"></div>
-            Introduction to Python
-          </div>
-          <div class="cert-item">
-            <div class="cdot"></div>
-            Intermediate Python
-          </div>
-          <div class="cert-item">
-            <div class="cdot"></div>
-            Introduction to SQL
-          </div>
-          <div class="cert-item">
-            <div class="cdot"></div>
-            Intermediate SQL
-          </div>
-          <div class="cert-item">
-            <div class="cdot"></div>
-            Introduction to Excel
-          </div>
-          <div class="cert-item">
-            <div class="cdot"></div>
-            Tableau Fundamentals
-          </div>
-        </div>
-      </div>
-    </section>
+    <div class="label copy">&copy; 2026 Josh Peter Pardosi</div>
+  </div>
+</footer>
 
-    <section id="resume">
-      <div class="sec-lbl">05 / Resume</div>
-      <h2 class="sec-title">Download My Resume</h2>
-      <div class="sec-div"></div>
-      <div style="display: flex; justify-content: center">
-        <div class="resume-card reveal">
-          <div class="resume-icon">📄</div>
-          <p class="resume-desc">
-            <strong>Josh Peter Pardosi</strong><br />Undergraduate CS Student ·
-            Data Scientist Cohort<br />Universitas Sumatera Utara · GPA
-            3.68/4.00
-          </p>
-          <a
-            href="https://drive.google.com/file/d/1-yIDqhBGcY3nTTcRGfrDe2HcmZMx1Ltw/view?usp=sharing"
-            target="_blank"
-            class="btn btn-p"
-            style="width: 100%; justify-content: center"
-            >↓ Download Resume (PDF)</a
-          >
-          <a
-            href="https://www.linkedin.com/in/josh-peter-pardosi-44ab612aa/"
-            target="_blank"
-            class="btn btn-o"
-            style="width: 100%; justify-content: center"
-            >View LinkedIn Profile</a
-          >
-        </div>
-      </div>
-    </section>
+<script>
+(function(){
+  // Print view: ?print=1 renders a tighter, paper-oriented layout
+  var params = new URLSearchParams(window.location.search);
+  if (params.get('print') === '1') {
+    document.body.classList.add('print-mode');
+  }
 
-    <section id="contact">
-      <div class="sec-lbl">06 / Contact</div>
-      <h2 class="sec-title">Let's Connect</h2>
-      <div class="sec-div"></div>
-      <p class="c-sub">
-        Actively seeking a <strong>Data Analyst or Data Science internship</strong>. Strong
-        analytical foundation, genuine drive, and the discipline to grow fast.
-      </p>
-      <a href="mailto:itsjoshpeter@gmail.com" class="c-email"
-        >itsjoshpeter@gmail.com</a
-      >
-      <div class="c-links">
-        <a
-          href="https://www.linkedin.com/in/josh-peter-pardosi-44ab612aa/"
-          target="_blank"
-          class="c-link"
-          >LinkedIn</a
-        >
-        <a
-          href="https://github.com/JoshPardosi-231401031"
-          target="_blank"
-          class="c-link"
-          >GitHub</a
-        >
-        <a href="tel:+6281122225245" class="c-link">+62 811 2222 5245</a>
-      </div>
-    </section>
+  // Reveal on scroll
+  var els = document.querySelectorAll('.reveal');
+  if (!('IntersectionObserver' in window)) {
+    els.forEach(function(el){ el.classList.add('in'); });
+  } else {
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+      });
+    }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+    els.forEach(function(el){ io.observe(el); });
+  }
 
-    <footer>
-      &copy; 2026 Josh Peter Pardosi &nbsp;·&nbsp; Built with HTML/CSS
-      &nbsp;·&nbsp; Hosted on GitHub Pages
-    </footer>
+  // Active nav link on scroll
+  var links = Array.prototype.slice.call(document.querySelectorAll('.nav-links a'));
+  var targets = links.map(function(a){ return document.querySelector(a.getAttribute('href')); });
+  function sync(){
+    var y = window.scrollY + 140, active = -1;
+    targets.forEach(function(t, i){ if (t && t.offsetTop <= y) active = i; });
+    links.forEach(function(a, i){ a.classList.toggle('is-active', i === active); });
+  }
+  window.addEventListener('scroll', sync, { passive:true });
+  sync();
+})();
+</script>
 
-    <script>
-      const obs = new IntersectionObserver(
-        (e) => {
-          e.forEach((x) => {
-            if (x.isIntersecting) x.target.classList.add("visible");
-          });
-        },
-        { threshold: 0.12 },
-      );
-      document.querySelectorAll(".reveal").forEach((el) => obs.observe(el));
-      const secs = document.querySelectorAll("section[id]"),
-        links = document.querySelectorAll(".nav-links a");
-      const nObs = new IntersectionObserver(
-        (e) => {
-          e.forEach((x) => {
-            if (x.isIntersecting) {
-              links.forEach((l) => l.classList.remove("active"));
-              const a = document.querySelector(
-                `.nav-links a[href="#${x.target.id}"]`,
-              );
-              if (a) a.classList.add("active");
-            }
-          });
-        },
-        { threshold: 0.4 },
-      );
-      secs.forEach((s) => nObs.observe(s));
-    </script>
-  </body>
+</body>
 </html>
