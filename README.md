@@ -10,14 +10,6 @@
 
 ---
 
-## 📋 What Is This?
-
-The source code for my **personal portfolio website**, hosted on **GitHub Pages**. It is where recruiters and hiring managers can see my work in detail — what I built, what the data showed, and what it could not support.
-
-**🔗 Live site:** [joshpeterpardosi.github.io/JoshPeterPardosi_Portfolio](https://joshpeterpardosi.github.io/JoshPeterPardosi_Portfolio/)
-
----
-
 ## 📂 Projects Featured
 
 | Project | Focus | Tools |
