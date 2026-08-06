@@ -395,7 +395,12 @@ footer{border-top:1px solid var(--border); background:#fff; padding:96px 0 40px}
   var targets = links.map(function(a){ return document.querySelector(a.getAttribute('href')); });
   function sync(){
     var y = window.scrollY + 140, active = -1;
-    targets.forEach(function(t, i){ if (t && t.offsetTop <= y) active = i; });
+    var atBottom = window.innerHeight + window.scrollY >= document.body.offsetHeight - 2;
+    if (atBottom) {
+      active = targets.length - 1;
+    } else {
+      targets.forEach(function(t, i){ if (t && t.offsetTop <= y) active = i; });
+    }
     links.forEach(function(a, i){ a.classList.toggle('is-active', i === active); });
   }
   window.addEventListener('scroll', sync, { passive:true });
