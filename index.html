@@ -10,7 +10,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500&family=Inter:wght@400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
 :root{
-  --bg:#FFFFFF; --border:#E6E8EB; --ink:#111418; --muted:#5B6570; --accent:#2563EB;
+  --bg:#FFFFFF; --border:#E6E8EB; --ink:#111418; --muted:#5B6570; --accent:#0f766e;
   --serif:"Newsreader",Georgia,serif;
   --sans:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
   --mono:"JetBrains Mono",ui-monospace,"SFMono-Regular",Consolas,monospace;
@@ -65,9 +65,10 @@ h1{font-size:56px; line-height:1.08; margin-bottom:16px}
 .portrait{flex:0 0 auto; width:200px; height:200px; border:1px solid var(--border)}
 .portrait img{width:100%; height:100%; object-fit:cover}
 
-/* ---------- featured cards ---------- */
-.cards{display:flex; flex-direction:column; gap:24px}
-.card{display:flex; gap:32px; border:1px solid var(--border); padding:24px; transition:transform .2s ease, border-color .2s ease}
+/* ---------- featured cards (High Design Variance) ---------- */
+.cards{display:flex; flex-direction:column; gap:32px}
+.card{display:flex; gap:32px; border:1px solid var(--border); padding:28px; transition:transform .2s ease, border-color .2s ease}
+.card:nth-child(even){flex-direction:row-reverse}
 .card:hover{transform:translateY(-2px); border-color:#D3D7DC}
 .shot{flex:0 0 46%; align-self:flex-start; border:1px solid var(--border); background:#fff; aspect-ratio:16/10; overflow:hidden}
 .shot img{width:100%; height:100%; object-fit:contain; object-position:center top; background:#fff}
@@ -76,7 +77,7 @@ h1{font-size:56px; line-height:1.08; margin-bottom:16px}
 .card .stack{color:var(--muted); margin-bottom:8px}
 .card .summary{color:var(--muted); margin-bottom:16px}
 .result{font-family:var(--serif); font-size:21px; line-height:1.4; color:var(--ink); margin-bottom:8px}
-.caveat{font-size:14px; font-style:italic; color:var(--muted); margin-bottom:16px}
+.caveat{font-size:14px; font-style:italic; color:#334155; margin-bottom:16px}
 .card-link{display:inline-block; font-family:var(--mono); font-size:14px}
 .url-cap{display:none; color:var(--muted); margin-top:4px; word-break:break-all}
 
@@ -109,15 +110,14 @@ footer{border-top:1px solid var(--border); background:#fff; padding:96px 0 40px}
 .c-val{flex:1 1 auto; min-width:0; font-size:15px; word-break:break-word}
 .copy{color:var(--muted)}
 
-/* ---------- motion ----------
-   Gated on .js so the page is fully visible if JavaScript fails to run. */
+/* ---------- motion ---------- */
 .js .reveal{opacity:0; transform:translateY(12px); transition:opacity .2s ease-out, transform .2s ease-out}
 .js .reveal.in{opacity:1; transform:none}
 @media (prefers-reduced-motion:reduce){.js .reveal{opacity:1; transform:none; transition:none}}
 
 /* ---------- responsive ---------- */
 @media (max-width:900px){
-  .card{flex-direction:column; gap:24px}
+  .card, .card:nth-child(even){flex-direction:column; gap:24px}
   .shot{flex:none; width:100%}
 }
 @media (max-width:768px){
@@ -136,45 +136,6 @@ footer{border-top:1px solid var(--border); background:#fff; padding:96px 0 40px}
   .foot-lead{font-size:21px}
   footer{padding:64px 0 32px}
 }
-
-/* ================= PRINT VIEW (?print=1 and window.print) ================= */
-@page{size:A4; margin:14mm 15mm}
-</style>
-<style media="print">
-  .nav{display:none !important}
-  .print-head{display:block !important}
-  body{font-size:10pt; line-height:1.45}
-  section{padding:14pt 0 !important; break-inside:avoid}
-  .hero{gap:18pt}
-  h1{font-size:24pt}
-  .sec-title{font-size:15pt}
-  .card h3{font-size:12.5pt}
-  .result{font-size:12pt}
-  .card{break-inside:avoid; padding:10pt}
-  .shot{flex:0 0 38%}
-  .foot-cols{gap:18pt}
-  footer{padding:14pt 0 0}
-  a{color:#111418 !important; text-decoration:none !important}
-  .reveal{opacity:1 !important; transform:none !important}
-  .print-only{display:block !important}
-  .url-cap{display:block !important}
-  .shot{max-height:44mm}
-  .card .summary{margin-bottom:8pt}
-  .caveat{margin-bottom:8pt}
-  .foot-lead{font-size:12pt; margin-bottom:12pt}
-  .sec-head{margin-bottom:12pt}
-  .cards{gap:10pt}
-  .stats{margin-bottom:10pt}
-  .hero-pos{margin-bottom:12pt}
-  hr.rule{display:none}
-  *{-webkit-print-color-adjust:exact; print-color-adjust:exact}
-</style>
-<style>
-  .print-only{display:none}
-  body.print-mode .nav{display:none}
-  body.print-mode .print-only{display:block}
-  body.print-mode{font-size:15px}
-  body.print-mode section{padding:32px 0}
 </style>
 </head>
 <body>
@@ -248,7 +209,7 @@ footer{border-top:1px solid var(--border); background:#fff; padding:96px 0 40px}
           </div>
         </article>
 
-        <!-- Card 2 -->
+        <!-- Card 2 (Image Right - Alternating Layout) -->
         <article class="card">
           <div class="shot">
             <img src="assets/project-sales-forecasting.png" alt="Power BI dashboard showing actual versus forecast daily sales for Favorita retail" loading="lazy">
@@ -257,6 +218,8 @@ footer{border-top:1px solid var(--border); background:#fff; padding:96px 0 40px}
             <h3>Retail Sales Forecasting &mdash; Time Series</h3>
             <p class="stack mono">Python · Pandas · statsmodels · PostgreSQL · Power BI</p>
             <p class="summary">Built an end-to-end pipeline on Corporación Favorita retail sales — Pandas cleaning, a PostgreSQL data model, and a four-page Power BI dashboard covering store performance, promotion effects, and a 90-day forecast.</p>
+            <p class="result">Holt-Winters additive forecasting reduced MAE by 37.6% against a 7-day moving-average baseline.</p>
+            <p class="caveat">RMSE improved far less than MAE, indicating the model still under-forecasts sudden demand spikes — so the forecast is framed as a planning baseline, not an exact prediction.</p>
             <a class="card-link" href="https://github.com/joshpeterpardosi/sales-forecasting-dashboard" target="_blank" rel="noopener">View on GitHub &rarr;</a>
             <div class="mono url-cap">github.com/joshpeterpardosi/sales-forecasting-dashboard</div>
           </div>
@@ -265,14 +228,14 @@ footer{border-top:1px solid var(--border); background:#fff; padding:96px 0 40px}
         <!-- Card 3 -->
         <article class="card">
           <div class="shot">
-            <img src="assets/project-ecommerce-funnel.png" alt="E-Commerce Retention & Funnel Analytics Dashboard" loading="lazy" onerror="this.src='https://placehold.co/600x375/0f172a/38bdf8?text=DuckDB+Streamlit+Analytics'">
+            <img src="assets/project-ecommerce-funnel.png" alt="E-Commerce Retention & Funnel Analytics Dashboard" loading="lazy">
           </div>
           <div class="card-body">
             <h3>E-Commerce Conversion Funnel &amp; Customer Retention Platform</h3>
             <p class="stack mono">DuckDB · Python · Parquet · Streamlit · Plotly · Pytest</p>
             <p class="summary">Built an end-to-end analytical platform querying 500,000 clickstream events and 25,000 customer records in &lt;50ms directly on Parquet storage without database servers.</p>
-            <p class="result">$34,210+ Revenue Tracked · ~40% Checkout Drop-off Isolated · 547 Champions Identified</p>
-            <p class="caveat">Features 4 interactive analytical views: Funnel Conversion, Monthly Cohort Retention Heatmap, RFM Quantile Scoring (NTILE 4), and Data Quality Audits.</p>
+            <p class="result">Isolated $34,210+ in completed transactions and detected a 40% checkout drop-off rate across 500,000 clickstream events.</p>
+            <p class="caveat">Segmentation identified 547 Champions accounts generating top-tier lifetime value, verified by a 2/2 Pytest unit test suite.</p>
             <a class="card-link" href="https://github.com/joshpeterpardosi/ecommerce-funnel-retention" target="_blank" rel="noopener">View on GitHub &rarr;</a>
             <div class="mono url-cap">github.com/joshpeterpardosi/ecommerce-funnel-retention</div>
           </div>
@@ -411,13 +374,11 @@ footer{border-top:1px solid var(--border); background:#fff; padding:96px 0 40px}
 
 <script>
 (function(){
-  // Print view: ?print=1 renders a tighter, paper-oriented layout
   var params = new URLSearchParams(window.location.search);
   if (params.get('print') === '1') {
     document.body.classList.add('print-mode');
   }
 
-  // Reveal on scroll
   var els = document.querySelectorAll('.reveal');
   if (!('IntersectionObserver' in window)) {
     els.forEach(function(el){ el.classList.add('in'); });
@@ -430,7 +391,6 @@ footer{border-top:1px solid var(--border); background:#fff; padding:96px 0 40px}
     els.forEach(function(el){ io.observe(el); });
   }
 
-  // Active nav link on scroll
   var links = Array.prototype.slice.call(document.querySelectorAll('.nav-links a'));
   var targets = links.map(function(a){ return document.querySelector(a.getAttribute('href')); });
   function sync(){
