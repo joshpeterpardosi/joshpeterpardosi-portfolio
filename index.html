@@ -188,7 +188,7 @@ footer{border-top:1px solid var(--border); background:#fff; padding:96px 0 40px}
     <div class="wrap">
       <div class="sec-head">
         <span class="label sec-num">01 &mdash; Featured Work</span>
-        <h2 class="sec-title">Three projects, in depth</h2>
+        <h2 class="sec-title">Four projects, in depth</h2>
       </div>
 
       <div class="cards">
@@ -238,6 +238,22 @@ footer{border-top:1px solid var(--border); background:#fff; padding:96px 0 40px}
             <p class="caveat">Segmentation identified 547 Champions accounts generating top-tier lifetime value, verified by a 2/2 Pytest unit test suite.</p>
             <a class="card-link" href="https://github.com/joshpeterpardosi/ecommerce-funnel-retention" target="_blank" rel="noopener">View on GitHub &rarr;</a>
             <div class="mono url-cap">github.com/joshpeterpardosi/ecommerce-funnel-retention</div>
+          </div>
+        </article>
+
+        <!-- Card 4 (Image Right - Alternating Layout) -->
+        <article class="card">
+          <div class="shot">
+            <img src="assets/project-data-quality.png" alt="Data Quality Observability dashboard showing check pass/fail counts by dimension and volume anomalies" loading="lazy">
+          </div>
+          <div class="card-body">
+            <h3>Data Quality &amp; Observability Platform</h3>
+            <p class="stack mono">Python · DuckDB · Pandera · Streamlit · Plotly · Pytest</p>
+            <p class="summary">Built an end-to-end pipeline that ingests messy e-commerce CSVs into DuckDB, validates them against data-quality rules across five dimensions — completeness, uniqueness, validity, consistency, timeliness — and curates only the rows that pass into a three-page observability dashboard.</p>
+            <p class="result">20 tests cover every validation layer end to end — Pandera schemas, SQL checks, and the curation gate — with CI running the full suite on every push across Python 3.11 and 3.13.</p>
+            <p class="caveat">No scheduler yet — checks run on demand, not on a cron, so freshness is enforced by hand until an orchestrator like Airflow or Dagster is added.</p>
+            <a class="card-link" href="https://github.com/joshpeterpardosi/data-quality-observability" target="_blank" rel="noopener">View on GitHub &rarr;</a>
+            <div class="mono url-cap">github.com/joshpeterpardosi/data-quality-observability</div>
           </div>
         </article>
 
