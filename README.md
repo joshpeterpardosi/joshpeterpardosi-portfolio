@@ -3,7 +3,7 @@
 > A personal portfolio website presenting my data analysis and forecasting work, with results and their limitations stated openly.
 
 <p align="center">
-<a href="https://joshpeterpardosi.github.io/JoshPeterPardosi_Portfolio/">
+<a href="https://joshpeterpardosi.github.io/joshpeterpardosi-portfolio/">
 <img src="https://img.shields.io/badge/Visit_Live_Portfolio-2563EB?style=for-the-badge" alt="Live Portfolio" />
 </a>
 </p>
