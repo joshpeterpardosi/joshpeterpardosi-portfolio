@@ -14,10 +14,17 @@
 
 | Project | Focus | Tools |
 |---------|-------|-------|
+| **MLOps Pipeline — Churn Prediction & Revenue Forecasting** | Dagster-orchestrated churn + MRR forecasting loop with MLflow promotion, FastAPI serving, and Evidently-triggered retraining; 101 tests, 0.84 ROC-AUC churn model | Python, Dagster, MLflow, LightGBM, FastAPI, Evidently, Docker |
+| **E-Commerce Conversion Funnel & Customer Retention** | Funnel, cohort retention, and RFM segmentation over 507,928 clickstream events on DuckDB/Parquet; 11 tests, live Streamlit dashboard | DuckDB, Python, Parquet, Streamlit, Plotly, Pytest |
+| **Data Quality & Observability Platform** | Five-dimension validation gate curating messy e-commerce CSVs into a clean, audited dataset; 20 tests | Python, DuckDB, Pandera, Streamlit, Plotly, Pytest |
+
+### Also worth a look
+
+| Project | Focus | Tools |
+|---------|-------|-------|
+| **Real-Time Event Pipeline — Fraud/Transaction Detection** | Kafka-streamed transactions, rule-based + ML fraud scoring, ClickHouse storage, dual Grafana/Streamlit dashboards | Kafka (Redpanda), Python, ClickHouse, Grafana, Streamlit |
 | **A/B Testing — Marketing Campaign** | Experiment analysis on 588,101 users; 43% conversion lift verified as timing-independent | Python, Pandas, SciPy, statsmodels |
-| **Retail Sales Forecasting** | 90-day forecast on Corporación Favorita sales; MAE reduced 37.6% vs a moving-average baseline | Python, statsmodels, PostgreSQL, Power BI |
-| **Global Retail Expansion & Revenue Analysis** | Tableau dashboard on seasonality, top markets, and high-value customers | Tableau |
-| **Customer Order Data Cleaning** | Reproducible cleaning pipeline for a messy orders dataset | Python, Pandas |
+| **E-Commerce ELT Pipeline & Review Score Prediction** | dbt/BigQuery ELT over the Olist dataset feeding a review-score prediction model | Python, dbt, BigQuery, scikit-learn |
 
 ---
 
