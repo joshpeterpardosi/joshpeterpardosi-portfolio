@@ -188,7 +188,7 @@ footer{border-top:1px solid var(--border); background:#fff; padding:96px 0 40px}
     <div class="wrap">
       <div class="sec-head">
         <span class="label sec-num">01 &mdash; Featured Work</span>
-        <h2 class="sec-title">Four projects, in depth</h2>
+        <h2 class="sec-title">Three projects, in depth</h2>
       </div>
 
       <div class="cards">
@@ -196,36 +196,20 @@ footer{border-top:1px solid var(--border); background:#fff; padding:96px 0 40px}
         <!-- Card 1 -->
         <article class="card">
           <div class="shot">
-            <img src="assets/project-ab-testing.png" alt="Conversion rate by day of week, ad group versus PSA control group" loading="lazy">
+            <img src="assets/project-churn-mlops.png" alt="Churn MLOps demo UI showing live churn prediction and MRR forecast requests" loading="lazy">
           </div>
           <div class="card-body">
-            <h3>A/B Testing &mdash; Marketing Campaign Effectiveness</h3>
-            <p class="stack mono">Python · Pandas · SciPy · statsmodels</p>
-            <p class="summary">Analyzed a 588,101-user marketing experiment to measure whether the campaign lifted conversion, then pushed past the p-value into cost sensitivity and ROI scenarios.</p>
-            <p class="result">Detected a statistically robust 43% conversion lift, verified as timing-independent, with 95% confidence intervals.</p>
-            <p class="caveat">Profitability could not be confirmed from this dataset alone — ad cost was not observed, so the ROI figures are scenario-based.</p>
-            <a class="card-link" href="https://github.com/joshpeterpardosi/ab-test-marketing-analysis" target="_blank" rel="noopener">View on GitHub &rarr;</a>
-            <div class="mono url-cap">github.com/joshpeterpardosi/ab-test-marketing-analysis</div>
+            <h3>MLOps Pipeline &mdash; Churn Prediction &amp; Revenue Forecasting</h3>
+            <p class="stack mono">Python · Dagster · MLflow · LightGBM · FastAPI · Evidently · Docker</p>
+            <p class="summary">Built an end-to-end MLOps loop for a SaaS subscription business &mdash; Dagster orchestrates ingestion through training, MLflow tracks and promotes both the churn and forecast models by their evaluation metric, a FastAPI service serves live predictions, and an Evidently-monitored drift sensor triggers retraining automatically.</p>
+            <p class="result">101 tests run standalone in CI &mdash; mocks and tmp_path only, no live dataset or trained model required &mdash; and the docker-compose stack was verified end-to-end, serving real predictions from the production-aliased churn model at 0.84 ROC-AUC.</p>
+            <p class="caveat">The forecast model's RMSE (38.96) barely beats a naive baseline (39.06), and churn recall sits at 0.51 &mdash; it still misses roughly half of actual churners, so neither model is tuned for production-grade capture yet.</p>
+            <a class="card-link" href="https://github.com/joshpeterpardosi/churn-mlops-forecasting-ops" target="_blank" rel="noopener">View on GitHub &rarr;</a>
+            <div class="mono url-cap">github.com/joshpeterpardosi/churn-mlops-forecasting-ops</div>
           </div>
         </article>
 
         <!-- Card 2 (Image Right - Alternating Layout) -->
-        <article class="card">
-          <div class="shot">
-            <img src="assets/project-sales-forecasting.png" alt="Power BI dashboard showing actual versus forecast daily sales for Favorita retail" loading="lazy">
-          </div>
-          <div class="card-body">
-            <h3>Retail Sales Forecasting &mdash; Time Series</h3>
-            <p class="stack mono">Python · Pandas · statsmodels · PostgreSQL · Power BI</p>
-            <p class="summary">Built an end-to-end pipeline on Corporación Favorita retail sales — Pandas cleaning, a PostgreSQL data model, and a four-page Power BI dashboard covering store performance, promotion effects, and a 90-day forecast.</p>
-            <p class="result">Holt-Winters additive forecasting reduced MAE by 37.6% against a 7-day moving-average baseline.</p>
-            <p class="caveat">RMSE improved far less than MAE, indicating the model still under-forecasts sudden demand spikes — so the forecast is framed as a planning baseline, not an exact prediction.</p>
-            <a class="card-link" href="https://github.com/joshpeterpardosi/sales-forecasting-dashboard" target="_blank" rel="noopener">View on GitHub &rarr;</a>
-            <div class="mono url-cap">github.com/joshpeterpardosi/sales-forecasting-dashboard</div>
-          </div>
-        </article>
-
-        <!-- Card 3 -->
         <article class="card">
           <div class="shot">
             <img src="assets/project-ecommerce-funnel.png" alt="E-Commerce Retention & Funnel Analytics Dashboard" loading="lazy">
@@ -242,7 +226,7 @@ footer{border-top:1px solid var(--border); background:#fff; padding:96px 0 40px}
           </div>
         </article>
 
-        <!-- Card 4 (Image Right - Alternating Layout) -->
+        <!-- Card 3 -->
         <article class="card">
           <div class="shot">
             <img src="assets/project-data-quality.png" alt="Data Quality Observability dashboard showing check pass/fail counts by dimension and volume anomalies" loading="lazy">
@@ -275,17 +259,24 @@ footer{border-top:1px solid var(--border); background:#fff; padding:96px 0 40px}
       <div class="rows">
         <div class="row">
           <div>
-            <h3>Global Retail Expansion &amp; Revenue Analysis</h3>
-            <div class="stack mono">Tableau</div>
+            <h3>Real-Time Event Pipeline &mdash; Fraud/Transaction Detection</h3>
+            <div class="stack mono">Kafka (Redpanda) · Python · ClickHouse · Grafana · Streamlit</div>
           </div>
-          <a href="https://public.tableau.com/shared/R57WQRKWG?:display_count=n&amp;:origin=viz_share_link" target="_blank" rel="noopener">Live Dashboard &rarr;</a>
+          <a href="https://github.com/joshpeterpardosi/real-time-event-pipeline" target="_blank" rel="noopener">GitHub &rarr;</a>
         </div>
         <div class="row">
           <div>
-            <h3>Customer Orders Data Cleaning &amp; Standardization</h3>
-            <div class="stack mono">Python · Pandas</div>
+            <h3>A/B Testing &mdash; Marketing Campaign Effectiveness</h3>
+            <div class="stack mono">Python · Pandas · SciPy · statsmodels</div>
           </div>
-          <a href="https://github.com/joshpeterpardosi/Python-Data-Cleaning-Project" target="_blank" rel="noopener">GitHub &rarr;</a>
+          <a href="https://github.com/joshpeterpardosi/ab-test-marketing-analysis" target="_blank" rel="noopener">GitHub &rarr;</a>
+        </div>
+        <div class="row">
+          <div>
+            <h3>E-Commerce ELT Pipeline &amp; Review Score Prediction</h3>
+            <div class="stack mono">Python · dbt · BigQuery · scikit-learn</div>
+          </div>
+          <a href="https://github.com/joshpeterpardosi/ecommerce-elt-pipeline" target="_blank" rel="noopener">GitHub &rarr;</a>
         </div>
       </div>
     </div>
