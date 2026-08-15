@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Josh Peter Pardosi — Data Analytics Portfolio</title>
-<meta name="description" content="Computer Science undergraduate at Universitas Sumatera Utara. A/B testing, MLOps pipelines, and data quality engineering. Seeking a Data Analyst internship.">
+<meta name="description" content="Computer Science undergraduate at Universitas Sumatera Utara. A/B testing, MLOps pipelines, real-time streaming, and data quality engineering. Seeking a Data Analyst internship.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500&family=Inter:wght@400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -86,6 +86,7 @@ h1{font-size:56px; line-height:1.08; margin-bottom:16px}
 .row{display:flex; align-items:baseline; justify-content:space-between; gap:24px; padding:16px 0; border-bottom:1px solid var(--border)}
 .row h3{font-family:var(--sans); font-size:17px; font-weight:500; letter-spacing:0}
 .row .stack{color:var(--muted); margin-top:2px}
+.row .note{color:var(--muted); margin-top:6px; max-width:62ch}
 .row a{font-family:var(--mono); font-size:14px; white-space:nowrap}
 
 /* ---------- skills ---------- */
@@ -188,7 +189,7 @@ footer{border-top:1px solid var(--border); background:#fff; padding:96px 0 40px}
     <div class="wrap">
       <div class="sec-head">
         <span class="label sec-num">01 &mdash; Featured Work</span>
-        <h2 class="sec-title">Three projects, in depth</h2>
+        <h2 class="sec-title">Four projects, in depth</h2>
       </div>
 
       <div class="cards">
@@ -242,6 +243,22 @@ footer{border-top:1px solid var(--border); background:#fff; padding:96px 0 40px}
           </div>
         </article>
 
+        <!-- Card 4 -->
+        <article class="card">
+          <div class="shot">
+            <img src="assets/project-real-time-pipeline.jpg" alt="Streamlit fraud analyst view showing flagged transactions by merchant with per-transaction fraud reasons" loading="lazy">
+          </div>
+          <div class="card-body">
+            <h3>Real-Time Event Pipeline &mdash; Fraud/Transaction Detection</h3>
+            <p class="stack mono">Kafka (Redpanda) · Python · ClickHouse · XGBoost · Grafana · Streamlit · Docker</p>
+            <p class="summary">Built a streaming pipeline that ingests transaction events through Kafka and scores each one twice &mdash; a rule engine covering amount thresholds, per-user velocity and geo mismatch, plus an XGBoost model &mdash; then writes both raw and flagged events into ClickHouse, behind a Grafana pipeline-health board and a Streamlit analyst view.</p>
+            <p class="result">Every flagged transaction carries its own fraud_reason, so an analyst can see whether a rule fired, the model did, or both. The model has to clear an enforced precision/recall bar (0.80 / 0.70) before it can be used at all; the one in the repo passed at 0.846 precision and 0.786 recall on the Kaggle held-out split. 46 tests cover the rule engine, the consumer loop, and one end-to-end run against the live docker-compose stack.</p>
+            <p class="caveat">ML scoring only applies to replayed Kaggle transactions. The synthetic generator does not emit the model's feature space, so synthetic traffic is checked by rules alone &mdash; a data-availability limit written into the schema rather than papered over.</p>
+            <a class="card-link" href="https://github.com/joshpeterpardosi/real-time-event-pipeline" target="_blank" rel="noopener">View on GitHub &rarr;</a>
+            <div class="mono url-cap">github.com/joshpeterpardosi/real-time-event-pipeline</div>
+          </div>
+        </article>
+
       </div>
     </div>
   </section>
@@ -259,15 +276,9 @@ footer{border-top:1px solid var(--border); background:#fff; padding:96px 0 40px}
       <div class="rows">
         <div class="row">
           <div>
-            <h3>Real-Time Event Pipeline &mdash; Fraud/Transaction Detection</h3>
-            <div class="stack mono">Kafka (Redpanda) · Python · ClickHouse · Grafana · Streamlit</div>
-          </div>
-          <a href="https://github.com/joshpeterpardosi/real-time-event-pipeline" target="_blank" rel="noopener">GitHub &rarr;</a>
-        </div>
-        <div class="row">
-          <div>
             <h3>A/B Testing &mdash; Marketing Campaign Effectiveness</h3>
             <div class="stack mono">Python · Pandas · SciPy · statsmodels</div>
+            <p class="note">A 588,101-user experiment: the ad group converted at 2.55% against 1.79% for the PSA control, a standardized 43.5% relative lift whose 95% interval [0.60, 0.95]&nbsp;pp never crosses zero. Profitability is a separate question the data cannot answer &mdash; cost per impression and value per conversion were never observed, and at mid-range assumptions the ROI lands at &minus;6.1%.</p>
           </div>
           <a href="https://github.com/joshpeterpardosi/ab-test-marketing-analysis" target="_blank" rel="noopener">GitHub &rarr;</a>
         </div>
@@ -275,6 +286,7 @@ footer{border-top:1px solid var(--border); background:#fff; padding:96px 0 40px}
           <div>
             <h3>E-Commerce ELT Pipeline &amp; Review Score Prediction</h3>
             <div class="stack mono">Python · dbt · BigQuery · scikit-learn</div>
+            <p class="note">Loads the Olist Brazilian e-commerce dataset into BigQuery's free tier, models it through dbt staging and mart layers, and feeds a review-score classifier. Accuracy 0.481 and macro F1 0.310 against a label heavily skewed to 5 stars &mdash; but Delivery Delay carries ~29% of feature importance, the variable the domain would predict matters most.</p>
           </div>
           <a href="https://github.com/joshpeterpardosi/ecommerce-elt-pipeline" target="_blank" rel="noopener">GitHub &rarr;</a>
         </div>
@@ -295,11 +307,11 @@ footer{border-top:1px solid var(--border); background:#fff; padding:96px 0 40px}
       <div>
         <div class="skill-row">
           <div class="skill-key label">Tools</div>
-          <div class="skill-val">PostgreSQL, DuckDB, ClickHouse, DBeaver, Docker, Visual Studio Code, Jupyter Notebook, Google Colab, Git, GitHub, Power BI, Tableau Public, Grafana, Microsoft Excel</div>
+          <div class="skill-val">PostgreSQL, DuckDB, ClickHouse, BigQuery, dbt, DBeaver, Docker, Streamlit, Visual Studio Code, Jupyter Notebook, Google Colab, Git, GitHub, Power BI, Tableau Public, Grafana, Microsoft Excel</div>
         </div>
         <div class="skill-row">
           <div class="skill-key label">Programming</div>
-          <div class="skill-val">Python (Pandas, NumPy, SciPy, statsmodels, scikit-learn, LightGBM, Matplotlib, Seaborn), SQL</div>
+          <div class="skill-val">Python (Pandas, NumPy, SciPy, statsmodels, scikit-learn, LightGBM, XGBoost, Matplotlib, Seaborn, Plotly), SQL</div>
         </div>
         <div class="skill-row">
           <div class="skill-key label">Skills</div>
