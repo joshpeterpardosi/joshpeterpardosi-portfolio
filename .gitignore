@@ -1,0 +1,10 @@
+# Agent tooling — local only, never pushed
+.claude/
+.agents/
+
+# graphify output — local learning/interview prep, never pushed
+graphify-out/
+*-summary.md
+
+# Application documents — served from Google Drive, not from this repo
+Portfolio_JoshPeterPardosi.pdf
