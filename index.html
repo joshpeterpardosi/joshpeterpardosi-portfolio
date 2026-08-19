@@ -1,427 +1,1097 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Josh Peter Pardosi — Data Analytics Portfolio</title>
-<meta name="description" content="Computer Science undergraduate at Universitas Sumatera Utara. A/B testing, MLOps pipelines, real-time streaming, and data quality engineering. Seeking a Data Analyst internship.">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Josh Peter Pardosi — Data Analytics</title>
+<meta name="description" content="Josh Peter Pardosi — Computer Science undergraduate seeking a Data Analyst or Data Scientist internship. MLOps, data pipelines, and dashboards, with results and their limits stated openly.">
+
+<!-- Absolute URLs below point at the GitHub Pages project page; update them if the site moves. -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Josh Peter Pardosi">
+<meta property="og:title" content="Josh Peter Pardosi — Data Analyst & Data Scientist">
+<meta property="og:description" content="Turning raw data into decisions worth trusting. MLOps pipelines, dashboards, and forecasts — with results and their limits stated openly.">
+<meta property="og:url" content="https://joshpeterpardosi.github.io/joshpeterpardosi-portfolio/">
+<meta property="og:image" content="https://joshpeterpardosi.github.io/joshpeterpardosi-portfolio/assets/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Josh Peter Pardosi — Data Analyst and Data Scientist portfolio">
+<meta property="og:locale" content="en_US">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Josh Peter Pardosi — Data Analyst & Data Scientist">
+<meta name="twitter:description" content="Turning raw data into decisions worth trusting. MLOps pipelines, dashboards, and forecasts — with results and their limits stated openly.">
+<meta name="twitter:image" content="https://joshpeterpardosi.github.io/joshpeterpardosi-portfolio/assets/og-image.png">
+<link rel="canonical" href="https://joshpeterpardosi.github.io/joshpeterpardosi-portfolio/">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%232b4fe0'/%3E%3Ctext x='50' y='70' font-size='60' font-family='Helvetica,sans-serif' font-weight='700' fill='%23ffffff' text-anchor='middle'%3EJ%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500&family=Inter:wght@400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
 :root{
-  --bg:#FFFFFF; --border:#E6E8EB; --ink:#111418; --muted:#5B6570; --accent:#0f766e;
-  --serif:"Newsreader",Georgia,serif;
-  --sans:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
-  --mono:"JetBrains Mono",ui-monospace,"SFMono-Regular",Consolas,monospace;
+  --bg:#e8e6df;
+  --bg-elev:#ffffff;
+  --card:#ffffff;
+  --card-inner:#f1efe9;
+  --hairline:rgba(21,20,15,0.08);
+  --hairline-strong:rgba(21,20,15,0.16);
+  --text:#15140f;
+  --text-dim:rgba(21,20,15,0.64);
+  --text-faint:rgba(21,20,15,0.62);
+  --accent:#2b4fe0;
+  --accent-2:#17309e;
+  --accent-soft:rgba(43,79,224,0.09);
+  --shadow-soft:0 20px 48px rgba(21,20,15,0.10), 0 2px 8px rgba(21,20,15,0.06);
+  --mono:'JetBrains Mono', monospace;
+  --serif-display:'Space Grotesk', sans-serif;
+  --body-font:'Plus Jakarta Sans', sans-serif;
+  --ease:cubic-bezier(0.32,0.72,0,1);
 }
-*{box-sizing:border-box}
-html{-webkit-text-size-adjust:100%}
+*{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
 body{
-  margin:0; background:var(--bg); color:var(--ink);
-  font-family:var(--sans); font-size:17px; line-height:1.65;
+  background:var(--bg);
+  color:var(--text);
+  font-family:var(--body-font);
+  overflow-x:hidden;
   -webkit-font-smoothing:antialiased;
 }
-a{color:var(--accent); text-decoration:none; transition:color .15s ease}
-a:hover{text-decoration:underline; text-underline-offset:4px; text-decoration-thickness:1px}
-h1,h2,h3{font-family:var(--serif); font-weight:400; letter-spacing:-.02em; margin:0}
-p{margin:0}
-img{display:block; max-width:100%}
 
-.wrap{max-width:1120px; margin:0 auto; padding:0 24px}
-.text-col{max-width:680px}
-.label{font-family:var(--mono); font-size:12px; font-weight:500; text-transform:uppercase; letter-spacing:.08em}
-.mono{font-family:var(--mono); font-size:13px; letter-spacing:0}
-.muted{color:var(--muted)}
-.rule{border:0; border-top:1px solid var(--border); margin:0}
-
-/* ---------- nav ---------- */
-.nav{position:sticky; top:0; z-index:50; background:#fff; border-bottom:1px solid var(--border)}
-.nav-in{display:flex; align-items:flex-end; justify-content:space-between; gap:24px; padding:16px 0}
-.wordmark{font-family:var(--serif); font-size:21px; line-height:1.2; color:var(--ink); display:block}
-.wordmark:hover{text-decoration:none}
-.tagline{color:var(--muted); margin-top:2px}
-.nav-links{display:flex; gap:24px}
-.nav-links a{color:var(--muted)}
-.nav-links a:hover{color:var(--accent); text-decoration:none}
-.nav-links a.is-active{color:var(--accent); border-bottom:1px solid var(--accent); padding-bottom:2px}
-
-/* ---------- sections ---------- */
-section{padding:96px 0}
-.sec-head{margin-bottom:40px}
-.sec-num{color:var(--accent); display:block; margin-bottom:8px}
-.sec-title{font-size:34px; line-height:1.2}
-
-/* ---------- hero ---------- */
-.hero{display:flex; gap:64px; align-items:flex-start; justify-content:space-between}
-.hero-text{flex:1 1 auto; max-width:680px}
-h1{font-size:56px; line-height:1.08; margin-bottom:16px}
-.hero-sub{font-size:17px; margin-bottom:16px}
-.hero-pos{color:var(--muted); margin-bottom:40px}
-.stats{display:flex; flex-wrap:wrap; align-items:center; gap:16px; margin-bottom:0}
-.stats .sep{color:var(--border)}
-.stat b{font-weight:500; font-variant-numeric:tabular-nums}
-.hero-links{display:flex; flex-wrap:wrap; gap:24px}
-.portrait{flex:0 0 auto; width:200px; height:200px; border:1px solid var(--border)}
-.portrait img{width:100%; height:100%; object-fit:cover}
-
-/* ---------- featured cards (High Design Variance) ---------- */
-.cards{display:flex; flex-direction:column; gap:32px}
-.card{display:flex; gap:32px; border:1px solid var(--border); padding:28px; transition:transform .2s ease, border-color .2s ease}
-.card:nth-child(even){flex-direction:row-reverse}
-.card:hover{transform:translateY(-2px); border-color:#D3D7DC}
-.shot{flex:0 0 46%; align-self:flex-start; border:1px solid var(--border); background:#F3F4F6; overflow:hidden; line-height:0}
-.shot img{width:100%; height:auto; display:block; background:#F3F4F6}
-.card-body{flex:1 1 auto; min-width:0}
-.card h3{font-size:24px; line-height:1.25; margin-bottom:8px}
-.card .stack{color:var(--muted); margin-bottom:8px}
-.card .summary{color:var(--muted); margin-bottom:16px}
-.result{font-family:var(--serif); font-size:21px; line-height:1.4; color:var(--ink); margin-bottom:8px}
-.caveat{font-size:14px; font-style:italic; color:#334155; margin-bottom:16px}
-.card-link{display:inline-block; font-family:var(--mono); font-size:14px}
-.url-cap{display:none; color:var(--muted); margin-top:4px; word-break:break-all}
-
-/* ---------- list rows ---------- */
-.rows{border-top:1px solid var(--border)}
-.row{display:flex; align-items:baseline; justify-content:space-between; gap:24px; padding:16px 0; border-bottom:1px solid var(--border)}
-.row h3{font-family:var(--sans); font-size:17px; font-weight:500; letter-spacing:0}
-.row .stack{color:var(--muted); margin-top:2px}
-.row .note{color:var(--muted); margin-top:6px; max-width:62ch}
-.row a{font-family:var(--mono); font-size:14px; white-space:nowrap}
-
-/* ---------- skills ---------- */
-.skill-row{display:flex; gap:40px; padding:16px 0; border-bottom:1px solid var(--border)}
-.skill-row:first-child{border-top:1px solid var(--border)}
-.skill-key{flex:0 0 180px; color:var(--muted); padding-top:5px}
-.skill-val{flex:1 1 auto; min-width:0}
-
-/* ---------- about ---------- */
-.about p+p{margin-top:16px}
-
-/* ---------- footer ---------- */
-footer{border-top:1px solid var(--border); background:#fff; padding:96px 0 40px}
-.foot-cols{display:flex; gap:64px; align-items:flex-start; margin-bottom:64px}
-.foot-left{flex:1 1 auto; max-width:460px}
-.foot-right{flex:0 0 460px; max-width:460px}
-.foot-lead{font-family:var(--serif); font-size:24px; line-height:1.35; margin-bottom:16px}
-.foot-note{color:var(--muted); font-size:15px}
-.c-row{display:flex; align-items:baseline; gap:24px; padding:12px 0; border-bottom:1px solid var(--border)}
-.c-row:first-child{border-top:1px solid var(--border)}
-.c-key{flex:0 0 84px; color:var(--muted)}
-.c-val{flex:1 1 auto; min-width:0; font-size:15px; word-break:break-word}
-.copy{color:var(--muted)}
-
-/* ---------- motion ---------- */
-.js .reveal{opacity:0; transform:translateY(12px); transition:opacity .2s ease-out, transform .2s ease-out}
-.js .reveal.in{opacity:1; transform:none}
-@media (prefers-reduced-motion:reduce){.js .reveal{opacity:1; transform:none; transition:none}}
-
-/* ---------- responsive ---------- */
-@media (max-width:900px){
-  .card, .card:nth-child(even){flex-direction:column; gap:24px}
-  .shot{flex:none; width:100%}
+.bg-orb{
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  z-index:0;
+  overflow:hidden;
 }
+.bg-orb::before,.bg-orb::after{
+  content:'';
+  position:absolute;
+  width:60vw;
+  height:60vw;
+  border-radius:50%;
+  filter:blur(140px);
+  opacity:0.10;
+}
+.bg-orb::before{
+  background:var(--accent);
+  top:-15vw;
+  left:-10vw;
+}
+.bg-orb::after{
+  background:var(--accent-2);
+  bottom:-20vw;
+  right:-15vw;
+  opacity:0.06;
+}
+
+.grain{
+  position:fixed;
+  inset:0;
+  z-index:50;
+  pointer-events:none;
+  opacity:0.02;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+.container{
+  max-width:1180px;
+  margin:0 auto;
+  padding:0 24px;
+  position:relative;
+  z-index:1;
+}
+
+/* NAV */
+nav{
+  position:fixed;
+  top:20px;
+  left:0;
+  right:0;
+  z-index:40;
+  display:flex;
+  justify-content:center;
+  transition:transform 0.55s var(--ease), opacity 0.4s var(--ease);
+  will-change:transform;
+}
+nav.nav-hidden{
+  transform:translateY(-140%);
+  opacity:0;
+}
+.nav-pill{
+  display:flex;
+  align-items:center;
+  gap:30px;
+  padding:8px 8px 8px 26px;
+  border-radius:999px;
+  background:rgba(255,255,255,0.42);
+  backdrop-filter:blur(28px) saturate(200%);
+  -webkit-backdrop-filter:blur(28px) saturate(200%);
+  border:1px solid rgba(255,255,255,0.65);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.95),
+    inset 0 -1px 0 rgba(255,255,255,0.35),
+    0 8px 28px rgba(21,20,15,0.10),
+    0 1px 3px rgba(21,20,15,0.06);
+}
+.nav-links{
+  display:flex;
+  gap:26px;
+  list-style:none;
+}
+.nav-links a{
+  color:var(--text-dim);
+  text-decoration:none;
+  font-size:13px;
+  font-weight:500;
+  transition:color 0.4s var(--ease);
+}
+.nav-links a:hover{color:var(--text);}
+.nav-cta{
+  display:flex;
+  align-items:center;
+  gap:6px;
+  padding:9px 16px;
+  border-radius:999px;
+  background:var(--text);
+  color:var(--bg);
+  font-size:12.5px;
+  font-weight:600;
+  text-decoration:none;
+  transition:transform 0.5s var(--ease), opacity 0.5s var(--ease);
+}
+.nav-cta:hover{transform:scale(1.04);opacity:0.9;}
+.nav-toggle{
+  display:none;
+  width:32px;height:32px;
+  border-radius:50%;
+  border:none;
+  background:rgba(21,20,15,0.06);
+  position:relative;
+  cursor:pointer;
+  flex-shrink:0;
+}
+.nav-toggle span{
+  position:absolute;
+  left:9px;
+  width:14px;
+  height:1.5px;
+  background:var(--text);
+  border-radius:2px;
+  transition:transform 0.5s var(--ease), opacity 0.4s var(--ease), top 0.5s var(--ease);
+}
+.nav-toggle span:nth-child(1){top:13px;}
+.nav-toggle span:nth-child(2){top:18px;}
+.nav-toggle.active span:nth-child(1){top:16px;transform:rotate(45deg);}
+.nav-toggle.active span:nth-child(2){top:16px;transform:rotate(-45deg);}
+
+.mobile-menu{
+  position:fixed;
+  inset:0;
+  z-index:39;
+  background:rgba(232,230,223,0.72);
+  backdrop-filter:blur(32px) saturate(180%);
+  -webkit-backdrop-filter:blur(32px) saturate(180%);
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:28px;
+  opacity:0;
+  pointer-events:none;
+  transition:opacity 0.5s var(--ease);
+}
+.mobile-menu.active{opacity:1;pointer-events:auto;}
+.mobile-menu a{
+  font-family:var(--serif-display);
+  font-size:2rem;
+  font-weight:600;
+  color:var(--text);
+  text-decoration:none;
+  opacity:0;
+  transform:translateY(48px);
+  transition:opacity 0.6s var(--ease), transform 0.6s var(--ease);
+}
+.mobile-menu.active a{opacity:1;transform:translateY(0);}
+.mobile-menu.active a:nth-child(1){transition-delay:0.1s;}
+.mobile-menu.active a:nth-child(2){transition-delay:0.15s;}
+.mobile-menu.active a:nth-child(3){transition-delay:0.2s;}
+.mobile-menu.active a:nth-child(4){transition-delay:0.25s;}
+
+/* EYEBROW */
+.eyebrow{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  padding:6px 14px 6px 8px;
+  border-radius:999px;
+  background:var(--accent-soft);
+  border:1px solid rgba(43,79,224,0.28);
+  font-size:10px;
+  text-transform:uppercase;
+  letter-spacing:0.2em;
+  font-weight:600;
+  color:var(--accent);
+}
+.eyebrow .dot{
+  width:6px;height:6px;border-radius:50%;
+  background:var(--accent);
+  box-shadow:0 0 8px var(--accent);
+}
+
+/* HERO */
+.hero{
+  min-height:100dvh;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  padding-top:140px;
+  padding-bottom:80px;
+  position:relative;
+}
+.hero-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:64px;
+  align-items:center;
+}
+.hero h1{
+  font-family:var(--serif-display);
+  font-weight:700;
+  font-size:clamp(2.8rem, 6.4vw, 5.6rem);
+  line-height:1.0;
+  letter-spacing:-0.03em;
+  margin:22px 0 24px;
+}
+.hero h1 .grad{
+  background:linear-gradient(120deg, var(--accent), var(--accent-2));
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent;
+}
+.hero p.lede{
+  font-size:1.05rem;
+  color:var(--text-dim);
+  max-width:520px;
+  line-height:1.65;
+  margin-bottom:36px;
+}
+.hero-actions{
+  display:flex;
+  gap:14px;
+  align-items:center;
+  flex-wrap:wrap;
+}
+.btn-primary{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  padding:8px 8px 8px 22px;
+  border-radius:999px;
+  background:var(--text);
+  color:var(--bg);
+  text-decoration:none;
+  font-weight:600;
+  font-size:14px;
+  transition:transform 0.5s var(--ease);
+}
+.btn-primary .icon-wrap{
+  width:34px;height:34px;
+  border-radius:50%;
+  background:rgba(255,255,255,0.16);
+  display:flex;align-items:center;justify-content:center;
+  transition:transform 0.5s var(--ease);
+}
+.btn-primary:hover{transform:scale(1.03);}
+.btn-primary:hover .icon-wrap{transform:translate(3px,-2px) scale(1.06);}
+.btn-primary:active{transform:scale(0.98);}
+
+.btn-ghost{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  padding:12px 22px;
+  border-radius:999px;
+  border:1px solid var(--hairline-strong);
+  color:var(--text);
+  text-decoration:none;
+  font-weight:500;
+  font-size:14px;
+  transition:background 0.5s var(--ease), border-color 0.5s var(--ease);
+}
+.btn-ghost:hover{background:rgba(21,20,15,0.04);border-color:rgba(21,20,15,0.24);}
+
+.hero-visual{
+  display:flex;
+  flex-direction:column;
+  gap:20px;
+}
+.hero-portrait{
+  padding:8px;
+  border-radius:2.25rem;
+  background:var(--bg-elev);
+  border:1px solid var(--hairline);
+  box-shadow:var(--shadow-soft);
+}
+.hero-portrait img{
+  width:100%;
+  aspect-ratio:4/5;
+  object-fit:cover;
+  border-radius:calc(2.25rem - 8px);
+  display:block;
+  filter:saturate(0.95) contrast(1.03);
+}
+.hero-stats-strip{
+  display:flex;
+  padding:22px 8px;
+  background:var(--bg-elev);
+  border:1px solid var(--hairline);
+  border-radius:1.5rem;
+  box-shadow:var(--shadow-soft);
+}
+.hero-stats-strip .stat-item{
+  flex:1;
+  display:flex;
+  flex-direction:column;
+  gap:6px;
+  padding:0 16px;
+  border-left:1px solid var(--hairline);
+  text-align:center;
+}
+.hero-stats-strip .stat-item:first-child{border-left:none;}
+.hero-stats-strip .stat-num{
+  font-family:var(--serif-display);
+  font-size:1.35rem;
+  font-weight:700;
+}
+.hero-stats-strip .stat-label{
+  font-size:10.5px;
+  color:var(--text-faint);
+  text-transform:uppercase;
+  letter-spacing:0.1em;
+  line-height:1.4;
+}
+.about-portrait{
+  padding:8px;
+  border-radius:2rem;
+  background:var(--bg-elev);
+  border:1px solid var(--hairline);
+  box-shadow:var(--shadow-soft);
+  max-width:100%;
+  margin-bottom:28px;
+}
+.about-portrait img{
+  width:100%;
+  aspect-ratio:3/2;
+  object-fit:cover;
+  object-position:center 30%;
+  border-radius:calc(2rem - 8px);
+  display:block;
+  filter:saturate(0.92) contrast(1.03);
+}
+.about-caption{
+  font-family:var(--mono);
+  font-size:12px;
+  color:var(--text-faint);
+  letter-spacing:0.04em;
+  margin:12px 0 0;
+}
+/* SECTION HEADERS */
+.section{
+  padding:96px 0;
+  position:relative;
+  scroll-margin-top:96px;
+}
+.section-head{
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-end;
+  gap:24px;
+  margin-bottom:56px;
+  flex-wrap:wrap;
+}
+.section-num{
+  font-family:var(--mono);
+  font-size:12px;
+  color:var(--text-faint);
+  letter-spacing:0.1em;
+}
+.section-title{
+  font-family:var(--serif-display);
+  font-size:clamp(1.8rem,3.4vw,2.6rem);
+  font-weight:600;
+  letter-spacing:-0.01em;
+  margin-top:8px;
+}
+.section-desc{
+  color:var(--text-dim);
+  font-size:14.5px;
+  max-width:280px;
+  line-height:1.6;
+}
+
+/* PROJECT BENTO */
+.bento{
+  display:grid;
+  grid-template-columns:repeat(12,1fr);
+  gap:20px;
+}
+#skills .bento{align-items:start;}
+.card-shell{
+  grid-column:span 12;
+  padding:5px;
+  border-radius:2rem;
+  background:var(--bg-elev);
+  border:1px solid var(--hairline);
+  box-shadow:var(--shadow-soft);
+  opacity:0;
+  transform:translateY(48px);
+  filter:blur(8px);
+  transition:opacity 0.9s var(--ease), transform 0.9s var(--ease), filter 0.9s var(--ease);
+}
+.card-shell.in-view{opacity:1;transform:translateY(0);filter:blur(0);}
+.card-shell.big{grid-column:span 8;}
+.card-shell.small{grid-column:span 4;}
+.card-shell.half{grid-column:span 6;}
+
+.card-core{
+  border-radius:calc(2rem - 5px);
+  background:var(--card);
+  padding:32px;
+  height:100%;
+  display:flex;
+  flex-direction:column;
+  gap:16px;
+}
+.card-tags{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+}
+.card-tags span{
+  font-family:var(--mono);
+  font-size:10.5px;
+  color:var(--accent);
+  background:var(--accent-soft);
+  padding:4px 10px;
+  border-radius:999px;
+  border:1px solid rgba(43,79,224,0.20);
+}
+.card-core h3{
+  font-family:var(--serif-display);
+  font-size:1.35rem;
+  font-weight:600;
+  line-height:1.25;
+  margin-top:4px;
+}
+.card-core p{
+  color:var(--text-dim);
+  font-size:14px;
+  line-height:1.7;
+}
+.card-core p.finding{
+  color:var(--text);
+  font-size:13.5px;
+  padding:14px 16px;
+  background:var(--card-inner);
+  border-radius:14px;
+  border-left:2px solid var(--accent);
+}
+.card-core p.limit{
+  color:var(--text-dim);
+  font-size:13px;
+  font-style:italic;
+}
+.card-cover{
+  border-radius:1.1rem;
+  overflow:hidden;
+  aspect-ratio:16/9;
+  background:var(--card-inner);
+  margin-bottom:4px;
+}
+.card-cover img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+  filter:saturate(0.85) contrast(1.05);
+  transition:transform 0.8s var(--ease), filter 0.8s var(--ease);
+}
+.card-shell:hover .card-cover img{
+  transform:scale(1.04);
+  filter:saturate(1) contrast(1.05);
+}
+.card-links{
+  display:flex;
+  gap:16px;
+  margin-top:auto;
+  padding-top:8px;
+}
+.card-links a{
+  color:var(--text);
+  text-decoration:none;
+  font-size:13px;
+  font-weight:600;
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  transition:gap 0.4s var(--ease), opacity .4s var(--ease);
+}
+.card-links a:hover{gap:10px;opacity:0.8;}
+
+/* TOOL GRID */
+.tool-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill, minmax(96px, 1fr));
+  gap:10px;
+  margin-top:4px;
+}
+.tool{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:9px;
+  padding:16px 8px;
+  border-radius:14px;
+  background:var(--card-inner);
+  border:1px solid transparent;
+  transition:background 0.45s var(--ease), border-color 0.45s var(--ease), transform 0.45s var(--ease);
+}
+.tool svg{
+  width:22px;
+  height:22px;
+  fill:var(--text-dim);
+  transition:fill 0.45s var(--ease), transform 0.45s var(--ease);
+}
+.tool span{
+  font-family:var(--mono);
+  font-size:11px;
+  color:var(--text-faint);
+  letter-spacing:0.02em;
+  text-align:center;
+  line-height:1.3;
+  transition:color 0.45s var(--ease);
+}
+.tool:hover{
+  background:var(--accent-soft);
+  border-color:rgba(43,79,224,0.2);
+  transform:translateY(-2px);
+}
+.tool:hover svg{fill:var(--accent);transform:scale(1.08);}
+.tool:hover span{color:var(--accent);}
+
+/* DARK FEATURE CARD */
+.card-core.accent{
+  background:#15140f;
+  color:#fff;
+}
+.card-core.accent h4{color:rgba(255,255,255,0.55);}
+.card-core.accent p{color:rgba(255,255,255,0.72);}
+.card-core.accent .card-links a{color:#fff;}
+.card-core.accent .stat-big{
+  font-family:var(--serif-display);
+  font-size:3.6rem;
+  font-weight:700;
+  line-height:1;
+  letter-spacing:-0.03em;
+  color:#fff;
+}
+
+/* SKILLS BENTO */
+.skill-card h4{
+  font-family:var(--mono);
+  font-size:11px;
+  text-transform:uppercase;
+  letter-spacing:0.16em;
+  color:var(--accent-2);
+  margin-bottom:12px;
+}
+.skill-card p{
+  color:var(--text-dim);
+  font-size:13.5px;
+  line-height:1.75;
+}
+
+/* ABOUT */
+.about-heading{
+  font-family:var(--serif-display);
+  font-size:clamp(1.9rem,4vw,2.8rem);
+  font-weight:600;
+  line-height:1.15;
+  letter-spacing:-0.01em;
+  margin-top:8px;
+}
+.about-grid{
+  display:grid;
+  grid-template-columns:0.85fr 1.15fr;
+  gap:48px;
+  align-items:start;
+}
+.about-body p{
+  color:var(--text-dim);
+  font-size:15.5px;
+  line-height:1.85;
+  margin-bottom:20px;
+}
+.about-body strong{color:var(--text);font-weight:600;}
+
+/* CONTACT / FOOTER */
+.contact-shell{
+  padding:6px;
+  border-radius:2.5rem;
+  background:var(--bg-elev);
+  border:1px solid var(--hairline);
+  box-shadow:var(--shadow-soft);
+}
+.contact-core{
+  border-radius:calc(2.5rem - 6px);
+  background:linear-gradient(155deg, rgba(255,255,255,0.86) 0%, rgba(255,255,255,0.52) 100%);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,0.9), inset 0 0 0 1px rgba(255,255,255,0.45);
+  padding:72px 48px;
+  text-align:center;
+  position:relative;
+  overflow:hidden;
+}
+.glass-blob{
+  position:absolute;
+  border-radius:50%;
+  filter:blur(58px);
+  pointer-events:none;
+  z-index:0;
+}
+.blob-a{
+  width:340px;height:340px;
+  background:rgba(43,79,224,0.40);
+  top:-110px;left:-70px;
+}
+.blob-b{
+  width:300px;height:300px;
+  background:rgba(23,48,158,0.28);
+  bottom:-120px;right:-60px;
+}
+.contact-inner{
+  position:relative;
+  z-index:1;
+}
+.contact-sub{
+  color:var(--text-dim);
+  font-size:15px;
+  line-height:1.65;
+  max-width:460px;
+  margin:0 auto 32px;
+}
+.contact-links{
+  display:flex;
+  justify-content:center;
+  flex-wrap:wrap;
+  gap:10px;
+  margin-top:28px;
+}
+.contact-links a{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  padding:11px 20px;
+  border-radius:999px;
+  background:var(--bg-elev);
+  border:1px solid var(--hairline);
+  color:var(--text);
+  text-decoration:none;
+  font-size:13.5px;
+  font-weight:600;
+  transition:transform 0.45s var(--ease), border-color 0.45s var(--ease), color 0.45s var(--ease);
+}
+.contact-links a svg{
+  width:15px;height:15px;
+  fill:var(--text-faint);
+  transition:fill 0.45s var(--ease);
+}
+.contact-links a:hover{
+  transform:translateY(-2px);
+  border-color:rgba(43,79,224,0.35);
+  color:var(--accent);
+}
+.contact-links a:hover svg{fill:var(--accent);}
+
+.contact-core h2{
+  font-family:var(--serif-display);
+  font-size:clamp(2rem,5vw,3.4rem);
+  font-weight:700;
+  letter-spacing:-0.025em;
+  line-height:1.06;
+  margin:0 0 18px;
+}
+footer{
+  padding:40px 0 60px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  color:var(--text-faint);
+  font-size:12.5px;
+  flex-wrap:wrap;
+  gap:12px;
+}
+footer a{color:var(--text-faint);text-decoration:none;}
+footer a:hover{color:var(--text-dim);}
+
+.reveal{
+  opacity:0;
+  transform:translateY(32px);
+  filter:blur(6px);
+  transition:opacity 0.9s var(--ease), transform 0.9s var(--ease), filter 0.9s var(--ease);
+}
+.reveal.in-view{opacity:1;transform:translateY(0);filter:blur(0);}
+
+/* MOBILE */
 @media (max-width:768px){
-  body{font-size:16px}
-  section{padding:64px 0}
-  h1{font-size:36px}
-  .sec-title{font-size:28px}
-  .hero{flex-direction:column-reverse; align-items:flex-start; gap:24px}
-  .portrait{width:140px; height:140px}
-  .nav-links{display:none}
-  .row{flex-direction:column; align-items:flex-start; gap:8px}
-  .skill-row{flex-direction:column; gap:8px}
-  .skill-key{flex:none; padding-top:0}
-  .foot-cols{flex-direction:column; gap:32px; margin-bottom:40px}
-  .foot-right{flex:none; width:100%; max-width:none}
-  .foot-lead{font-size:21px}
-  footer{padding:64px 0 32px}
+  .nav-links{display:none;}
+  .nav-pill{gap:16px;padding:10px 10px 10px 18px;}
+  .nav-toggle{display:block;}
+  .hero{padding-top:96px;padding-bottom:48px;}
+  .hero-grid{grid-template-columns:1fr;gap:26px;}
+  .hero h1{font-size:2.45rem;margin:14px 0 16px;}
+  .hero p.lede{font-size:0.97rem;line-height:1.6;margin-bottom:26px;}
+  .hero-portrait{padding:6px;border-radius:1.6rem;}
+  .hero-portrait img{aspect-ratio:5/4;object-position:center 22%;border-radius:calc(1.6rem - 6px);}
+  .hero-stats-strip{padding:16px 4px;border-radius:1.2rem;}
+  .hero-stats-strip .stat-item{padding:0 8px;}
+  .hero-stats-strip .stat-num{font-size:1.05rem;}
+  .hero-stats-strip .stat-label{font-size:9.5px;letter-spacing:0.06em;}
+  .card-shell.big,.card-shell.small,.card-shell.half{grid-column:span 12;}
+  .about-grid{grid-template-columns:1fr;gap:28px;}
+  .about-portrait{max-width:420px;}
+  .about-portrait img{aspect-ratio:1/1;object-position:center 28%;}
+  .section{padding:64px 0;}
+  .contact-core{padding:48px 24px;}
+  .section-head{margin-bottom:36px;}
 }
 </style>
 </head>
 <body>
-<script>document.documentElement.className+=' js';</script>
 
-<nav class="nav">
-  <div class="wrap nav-in">
-    <div>
-      <a class="wordmark" href="#top">Josh Pardosi</a>
-      <div class="label tagline">Portfolio</div>
-    </div>
-    <div class="nav-links label">
-      <a href="#work">Work</a>
-      <a href="#skills">Skills</a>
-      <a href="#about">About</a>
-      <a href="#contact">Contact</a>
-    </div>
+<div class="bg-orb"></div>
+<div class="grain"></div>
+
+<nav>
+  <div class="nav-pill">
+    <ul class="nav-links">
+      <li><a href="#work">Work</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#about">About</a></li>
+    </ul>
+    <a class="nav-cta" href="#contact">Let's talk</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Open menu"><span></span><span></span></button>
   </div>
 </nav>
 
-<main id="top">
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#work">Work</a>
+  <a href="#skills">Skills</a>
+  <a href="#about">About</a>
+  <a href="#contact">Contact</a>
+</div>
 
-  <!-- ============ HERO ============ -->
-  <section class="reveal">
-    <div class="wrap hero">
-      <div class="hero-text">
-        <h1>Josh Peter Pardosi</h1>
-        <p class="hero-sub">Computer Science Undergraduate, Universitas Sumatera Utara · Data Scientist Cohort, Coding Camp by DBS Foundation</p>
-        <p class="hero-pos">Building data analysis skills through real projects — experimentation, forecasting, and dashboards. Seeking a Data Analyst internship.</p>
-
-        <div class="stats mono">
-          <span class="stat"><b>3.68 / 4.00</b> GPA</span>
-          <span class="sep">|</span>
-          <span class="stat"><b>15</b> Certifications</span>
-          <span class="sep">|</span>
-          <span class="stat"><b>2+ Years</b> Teaching Mathematics</span>
-        </div>
-      </div>
-
-      <div class="portrait">
-        <img src="assets/josh-portrait.jpg" alt="Portrait of Josh Peter Pardosi" width="600" height="600">
-      </div>
-    </div>
-  </section>
-
-  <hr class="rule">
-
-  <!-- ============ 01 FEATURED WORK ============ -->
-  <section id="work" class="reveal">
-    <div class="wrap">
-      <div class="sec-head">
-        <span class="label sec-num">01 &mdash; Featured Work</span>
-        <h2 class="sec-title">Four projects, in depth</h2>
-      </div>
-
-      <div class="cards">
-
-        <!-- Card 1 -->
-        <article class="card">
-          <div class="shot">
-            <img src="assets/project-churn-mlops.jpg" alt="Live churn demo: a customer profile posted to /predict/churn, answered 200 OK with a 33.5% churn probability" loading="lazy">
-          </div>
-          <div class="card-body">
-            <h3>MLOps Pipeline &mdash; Churn Prediction &amp; Revenue Forecasting</h3>
-            <p class="stack mono">Python · Dagster · MLflow · LightGBM · FastAPI · Evidently · Docker</p>
-            <p class="summary">Built an end-to-end MLOps loop for a SaaS subscription business &mdash; Dagster orchestrates ingestion through training, MLflow tracks and promotes both the churn and forecast models by their evaluation metric, a FastAPI service serves live predictions, and an Evidently-monitored drift sensor triggers retraining automatically.</p>
-            <p class="result">101 tests run standalone in CI &mdash; mocks and tmp_path only, no live dataset or trained model required &mdash; and the docker-compose stack was verified end-to-end, serving real predictions from the production-aliased churn model at 0.84 ROC-AUC.</p>
-            <p class="caveat">The forecast model's RMSE (38.96) barely beats a naive baseline (39.06), and churn recall sits at 0.51 &mdash; it still misses roughly half of actual churners, so neither model is tuned for production-grade capture yet.</p>
-            <a class="card-link" href="https://github.com/joshpeterpardosi/churn-mlops-forecasting-ops" target="_blank" rel="noopener">View on GitHub &rarr;</a>
-            <div class="mono url-cap">github.com/joshpeterpardosi/churn-mlops-forecasting-ops</div>
-          </div>
-        </article>
-
-        <!-- Card 2 (Image Right - Alternating Layout) -->
-        <article class="card">
-          <div class="shot">
-            <img src="assets/project-ecommerce-funnel.png" alt="E-Commerce Retention & Funnel Analytics Dashboard" loading="lazy">
-          </div>
-          <div class="card-body">
-            <h3>E-Commerce Conversion Funnel &amp; Customer Retention Platform</h3>
-            <p class="stack mono">DuckDB · Python · Parquet · Streamlit · Plotly · Pytest</p>
-            <p class="summary">Built an end-to-end analytical platform that queries 507,928 clickstream events and 25,000 customer records directly on Parquet with DuckDB — no database server — behind a four-page Streamlit dashboard covering funnel, cohort retention, RFM segmentation and an automated data-quality audit. The heaviest query, five sequential session joins with windowing, returns in ~179&nbsp;ms.</p>
-            <p class="result">The funnel credits a stage only when it follows the previous one inside the same session: 25,000 visitors narrow to 2,033 purchasers (8.13%), and the steepest recoverable leak is product_view&nbsp;&rarr;&nbsp;add_to_cart at 54.50%. RFM isolates 113 Champions averaging $394.47 against $102.02 for churned accounts, a 3.9&times; gap, and cohort retention decays 100%&nbsp;&rarr;&nbsp;75.2%&nbsp;&rarr;&nbsp;56.8%&nbsp;&rarr;&nbsp;37.2% over the first three months. 11 tests run the production SQL against fixtures with hand-computed answers, on CI across Python 3.12&ndash;3.14.</p>
-            <p class="caveat">The data is synthetic — conversion behaviour is configured by the generator rather than observed, so these figures show the pipeline computes the metrics correctly, not that they reveal real customer behaviour.</p>
-            <a class="card-link" href="https://ecommerce-funnel-retention-aat6aktgvkewrzdttnofhh.streamlit.app/" target="_blank" rel="noopener" style="margin-right:18px">Live Dashboard &rarr;</a>
-            <a class="card-link" href="https://github.com/joshpeterpardosi/ecommerce-funnel-retention" target="_blank" rel="noopener">View on GitHub &rarr;</a>
-            <div class="mono url-cap">github.com/joshpeterpardosi/ecommerce-funnel-retention</div>
-          </div>
-        </article>
-
-        <!-- Card 3 -->
-        <article class="card">
-          <div class="shot">
-            <img src="assets/project-data-quality.png" alt="Data Quality Observability dashboard showing check pass/fail counts by dimension and volume anomalies" loading="lazy">
-          </div>
-          <div class="card-body">
-            <h3>Data Quality &amp; Observability Platform</h3>
-            <p class="stack mono">Python · DuckDB · Pandera · Streamlit · Plotly · Pytest</p>
-            <p class="summary">Built an end-to-end pipeline that ingests messy e-commerce CSVs into DuckDB, validates them against data-quality rules across five dimensions — completeness, uniqueness, validity, consistency, timeliness — and curates only the rows that pass into a three-page observability dashboard.</p>
-            <p class="result">20 tests cover every validation layer end to end — Pandera schemas, SQL checks, and the curation gate — with CI running the full suite on every push across Python 3.11 and 3.13.</p>
-            <p class="caveat">No scheduler yet — checks run on demand, not on a cron, so freshness is enforced by hand until an orchestrator like Airflow or Dagster is added.</p>
-            <a class="card-link" href="https://github.com/joshpeterpardosi/data-quality-observability" target="_blank" rel="noopener">View on GitHub &rarr;</a>
-            <div class="mono url-cap">github.com/joshpeterpardosi/data-quality-observability</div>
-          </div>
-        </article>
-
-        <!-- Card 4 -->
-        <article class="card">
-          <div class="shot">
-            <img src="assets/project-real-time-pipeline.jpg" alt="Streamlit fraud analyst view showing flagged transactions by merchant with per-transaction fraud reasons" loading="lazy">
-          </div>
-          <div class="card-body">
-            <h3>Real-Time Event Pipeline &mdash; Fraud/Transaction Detection</h3>
-            <p class="stack mono">Kafka (Redpanda) · Python · ClickHouse · XGBoost · Grafana · Streamlit · Docker</p>
-            <p class="summary">Built a streaming pipeline that ingests transaction events through Kafka and scores each one twice &mdash; a rule engine covering amount thresholds, per-user velocity and geo mismatch, plus an XGBoost model &mdash; then writes both raw and flagged events into ClickHouse, behind a Grafana pipeline-health board and a Streamlit analyst view.</p>
-            <p class="result">Every flagged transaction carries its own fraud_reason, so an analyst can see whether a rule fired, the model did, or both. The model has to clear an enforced precision/recall bar (0.80 / 0.70) before it can be used at all; the one in the repo passed at 0.846 precision and 0.786 recall on the Kaggle held-out split. 46 tests cover the rule engine, the consumer loop, and one end-to-end run against the live docker-compose stack.</p>
-            <p class="caveat">ML scoring only applies to replayed Kaggle transactions. The synthetic generator does not emit the model's feature space, so synthetic traffic is checked by rules alone &mdash; a data-availability limit written into the schema rather than papered over.</p>
-            <a class="card-link" href="https://github.com/joshpeterpardosi/real-time-event-pipeline" target="_blank" rel="noopener">View on GitHub &rarr;</a>
-            <div class="mono url-cap">github.com/joshpeterpardosi/real-time-event-pipeline</div>
-          </div>
-        </article>
-
-      </div>
-    </div>
-  </section>
-
-  <hr class="rule">
-
-  <!-- ============ 02 MORE PROJECTS ============ -->
-  <section class="reveal">
-    <div class="wrap">
-      <div class="sec-head">
-        <span class="label sec-num">02 &mdash; More Projects</span>
-        <h2 class="sec-title">Also worth a look</h2>
-      </div>
-
-      <div class="rows">
-        <div class="row">
-          <div>
-            <h3>A/B Testing &mdash; Marketing Campaign Effectiveness</h3>
-            <div class="stack mono">Python · Pandas · SciPy · statsmodels</div>
-            <p class="note">A 588,101-user experiment: the ad group converted at 2.55% against 1.79% for the PSA control, a standardized 43.5% relative lift whose 95% interval [0.60, 0.95]&nbsp;pp never crosses zero. Profitability is a separate question the data cannot answer &mdash; cost per impression and value per conversion were never observed, and at mid-range assumptions the ROI lands at &minus;6.1%.</p>
-          </div>
-          <a href="https://github.com/joshpeterpardosi/ab-test-marketing-analysis" target="_blank" rel="noopener">GitHub &rarr;</a>
-        </div>
-        <div class="row">
-          <div>
-            <h3>E-Commerce ELT Pipeline &amp; Review Score Prediction</h3>
-            <div class="stack mono">Python · dbt · BigQuery · scikit-learn</div>
-            <p class="note">Loads the Olist Brazilian e-commerce dataset into BigQuery's free tier, models it through dbt staging and mart layers, and feeds a review-score classifier. Accuracy 0.481 and macro F1 0.310 against a label heavily skewed to 5 stars &mdash; but Delivery Delay carries ~29% of feature importance, the variable the domain would predict matters most.</p>
-          </div>
-          <a href="https://github.com/joshpeterpardosi/ecommerce-elt-pipeline" target="_blank" rel="noopener">GitHub &rarr;</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <hr class="rule">
-
-  <!-- ============ 03 SKILLS ============ -->
-  <section id="skills" class="reveal">
-    <div class="wrap">
-      <div class="sec-head">
-        <span class="label sec-num">03 &mdash; Skills</span>
-        <h2 class="sec-title">What I work with</h2>
-      </div>
-
+<header class="hero">
+  <div class="container">
+    <div class="hero-grid">
       <div>
-        <div class="skill-row">
-          <div class="skill-key label">Tools</div>
-          <div class="skill-val">PostgreSQL, DuckDB, ClickHouse, BigQuery, dbt, DBeaver, Docker, Streamlit, Visual Studio Code, Jupyter Notebook, Google Colab, Git, GitHub, Power BI, Tableau Public, Grafana, Microsoft Excel</div>
+        <span class="eyebrow"><span class="dot"></span>Data Analyst · Data Scientist</span>
+        <h1>Josh Peter<br><span class="grad">Pardosi.</span></h1>
+        <p class="lede">Turning raw data into decisions worth trusting. Computer Science undergraduate at Universitas Sumatera Utara and Data Scientist Cohort member, Coding Camp by DBS Foundation — building analytical rigor through pipelines, dashboards, and forecasts that hold up under scrutiny.</p>
+        <div class="hero-actions">
+          <a class="btn-primary" href="#work">
+            View featured work
+            <span class="icon-wrap">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M7 17L17 7M17 7H9M17 7V15"/></svg>
+            </span>
+          </a>
+          <a class="btn-ghost" href="#contact">Get in touch</a>
         </div>
-        <div class="skill-row">
-          <div class="skill-key label">Programming</div>
-          <div class="skill-val">Python (Pandas, NumPy, SciPy, statsmodels, scikit-learn, LightGBM, XGBoost, Matplotlib, Seaborn, Plotly), SQL</div>
+      </div>
+
+      <div class="hero-visual reveal">
+        <div class="hero-portrait">
+          <img src="assets/josh-portrait.jpg" alt="Josh Peter Pardosi">
         </div>
-        <div class="skill-row">
-          <div class="skill-key label">Skills</div>
-          <div class="skill-val">Data Cleaning, Exploratory Data Analysis, Hypothesis Testing, A/B Testing, Time Series Forecasting, ETL, Window Functions, CTEs, Dashboard Development, Data Storytelling, MLOps (Dagster, MLflow, Evidently), API Development (FastAPI), Data Quality &amp; Validation (Pandera), Event Streaming (Kafka)</div>
-        </div>
-        <div class="skill-row">
-          <div class="skill-key label">Certifications</div>
-          <div class="skill-val">15 courses completed at DataCamp and Dicoding Indonesia — covering SQL, Python, data processing, visualization, and machine learning fundamentals.
-            <a class="mono" style="display:inline-block; margin-left:6px" href="https://www.linkedin.com/in/josh-peter-pardosi-44ab612aa/details/certifications/" target="_blank" rel="noopener">Verify on LinkedIn &rarr;</a>
+        <div class="hero-stats-strip">
+          <div class="stat-item">
+            <span class="stat-num">3.68</span>
+            <span class="stat-label">GPA / 4.00</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-num">15</span>
+            <span class="stat-label">Certifications</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-num">2+ yrs</span>
+            <span class="stat-label">Teaching Math</span>
           </div>
         </div>
-        <div class="skill-row">
-          <div class="skill-key label">Languages</div>
-          <div class="skill-val">English (Fluent), Indonesian (Native)</div>
-        </div>
       </div>
     </div>
-  </section>
-
-  <hr class="rule">
-
-  <!-- ============ 04 ABOUT ============ -->
-  <section id="about" class="reveal">
-    <div class="wrap">
-      <div class="sec-head">
-        <span class="label sec-num">04 &mdash; About</span>
-        <h2 class="sec-title">From mathematics to data</h2>
-      </div>
-      <div class="text-col about">
-        <p>My background is mathematics. Studying it, and then spending over two years teaching UTBK/SNBT mathematics to more than twenty students, trained two things I still rely on every day: working a problem in steps that can be checked, and explaining a quantitative result to someone who has no reason to trust it yet.</p>
-        <p>Data is where I spend my time now, and where I want my career to go. Most of that time goes into SQL and Python &mdash; pulling the data, cleaning it, testing whether a difference is real, then building the dashboard that makes the answer obvious. Alongside it I have been learning to work with AI tools, which I treat as part of adapting to how this field actually operates today: I use them for code and for pressure-testing my own reasoning, and verify what they return before it counts. What I am looking for is a Data Analyst internship where all of this runs on data a team actually depends on.</p>
-      </div>
-    </div>
-  </section>
-
-</main>
-
-<!-- ============ 05 CONTACT / FOOTER ============ -->
-<footer id="contact">
-  <div class="wrap reveal">
-    <span class="label sec-num">05 &mdash; Contact</span>
-
-    <div class="foot-cols">
-      <div class="foot-left">
-        <p class="foot-lead">Currently seeking a Data Analyst internship &mdash; open to Data Scientist roles.</p>
-        <p class="foot-note">Based in Batam, open to Medan, Jakarta, and remote.</p>
-      </div>
-
-      <div class="foot-right">
-        <div class="c-row">
-          <div class="c-key label">Email</div>
-          <div class="c-val"><a href="mailto:itsjoshpeter@gmail.com">itsjoshpeter@gmail.com</a></div>
-        </div>
-        <div class="c-row">
-          <div class="c-key label">LinkedIn</div>
-          <div class="c-val"><a href="https://www.linkedin.com/in/josh-peter-pardosi-44ab612aa/" target="_blank" rel="noopener">josh-peter-pardosi</a></div>
-        </div>
-        <div class="c-row">
-          <div class="c-key label">GitHub</div>
-          <div class="c-val"><a href="https://github.com/joshpeterpardosi" target="_blank" rel="noopener">joshpeterpardosi</a></div>
-        </div>
-        <div class="c-row">
-          <div class="c-key label">Resume</div>
-          <div class="c-val"><a href="https://drive.google.com/file/d/1CFjbA9SSnH6z_P5UXqEPdtS3azNIEM0c/view?usp=drive_link" target="_blank" rel="noopener">joshpardosi-resume</a></div>
-        </div>
-        <div class="c-row">
-          <div class="c-key label">Location</div>
-          <div class="c-val">Batam, Kepulauan Riau, Indonesia</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="label copy">&copy; 2026 Josh Peter Pardosi</div>
   </div>
+</header>
+
+<section class="section" id="work">
+  <div class="container">
+    <div class="section-head reveal">
+      <div>
+        <span class="section-num">01 — Featured Work</span>
+        <h2 class="section-title">Four projects, in depth</h2>
+      </div>
+      <p class="section-desc">End-to-end builds — orchestration, modeling, dashboards — reported with the limits included, not smoothed over.</p>
+    </div>
+
+    <div class="bento">
+
+      <div class="card-shell big">
+        <div class="card-core">
+          <div class="card-cover"><img src="assets/project-churn-mlops.jpg" alt="MLOps churn prediction pipeline dashboard"></div>
+          <div class="card-tags"><span>Python</span><span>Dagster</span><span>MLflow</span><span>LightGBM</span><span>FastAPI</span><span>Evidently</span><span>Docker</span></div>
+          <h3>MLOps Pipeline — Churn Prediction &amp; Revenue Forecasting</h3>
+          <p>End-to-end MLOps loop for a SaaS subscription business — Dagster orchestrates ingestion through training, MLflow tracks and promotes both models by their evaluation metric, a FastAPI service serves live predictions, and an Evidently-monitored drift sensor triggers retraining automatically.</p>
+          <p class="finding">101 tests run standalone in CI — mocks and tmp_path only — the docker-compose stack was verified end-to-end, serving predictions from the production-aliased churn model at 0.84 ROC-AUC.</p>
+          <p class="limit">Forecast RMSE (38.96) barely beats a naive baseline (39.06); churn recall sits at 0.51 — neither model is tuned for production-grade capture yet.</p>
+          <div class="card-links"><a href="https://github.com/joshpeterpardosi/churn-mlops-forecasting-ops" target="_blank" rel="noopener">View on GitHub ↗</a></div>
+        </div>
+      </div>
+
+      <div class="card-shell small">
+        <div class="card-core">
+          <div class="card-cover"><img src="assets/project-ecommerce-funnel.png" alt="E-commerce conversion funnel dashboard"></div>
+          <div class="card-tags"><span>DuckDB</span><span>Streamlit</span><span>Plotly</span></div>
+          <h3>E-Commerce Conversion Funnel &amp; Retention Platform</h3>
+          <p>507,928 clickstream events and 25,000 customer records queried directly on Parquet with DuckDB — no database server — behind a four-page dashboard.</p>
+          <p class="finding">25,000 visitors narrow to 2,033 purchasers (8.13%). RFM isolates 113 Champions averaging $394.47 vs $102.02 churned — a 3.9× gap.</p>
+          <p class="limit">Data is synthetic — figures show correct computation, not observed behaviour.</p>
+          <div class="card-links"><a href="https://github.com/joshpeterpardosi/ecommerce-funnel-retention" target="_blank" rel="noopener">View on GitHub ↗</a></div>
+        </div>
+      </div>
+
+      <div class="card-shell half">
+        <div class="card-core">
+          <div class="card-cover"><img src="assets/project-data-quality.png" alt="Data quality observability dashboard"></div>
+          <div class="card-tags"><span>Python</span><span>Pandera</span><span>Streamlit</span></div>
+          <h3>Data Quality &amp; Observability Platform</h3>
+          <p>Ingests messy e-commerce CSVs into DuckDB, validates against rules across five dimensions, curates passing rows into a three-page observability dashboard.</p>
+          <p class="finding">20 tests cover every validation layer end to end, CI running the full suite across Python 3.11 and 3.13.</p>
+          <p class="limit">No scheduler yet — checks run on demand until an orchestrator is added.</p>
+          <div class="card-links"><a href="https://github.com/joshpeterpardosi/data-quality-observability" target="_blank" rel="noopener">View on GitHub ↗</a></div>
+        </div>
+      </div>
+
+      <div class="card-shell half">
+        <div class="card-core">
+          <div class="card-cover"><img src="assets/project-real-time-pipeline.jpg" alt="Real-time fraud detection pipeline board"></div>
+          <div class="card-tags"><span>Kafka</span><span>ClickHouse</span><span>XGBoost</span><span>Grafana</span></div>
+          <h3>Real-Time Fraud/Transaction Detection</h3>
+          <p>Streaming pipeline scoring every transaction twice — a rule engine plus an XGBoost model — writing raw and flagged events into ClickHouse behind a Grafana health board.</p>
+          <p class="finding">Model cleared an enforced 0.80/0.70 precision/recall bar at 0.846 / 0.786 on the Kaggle held-out split. 46 tests cover engine, consumer, and live stack.</p>
+          <p class="limit">ML scoring applies only to replayed Kaggle transactions — synthetic traffic checked by rules alone.</p>
+          <div class="card-links"><a href="https://github.com/joshpeterpardosi/real-time-event-pipeline" target="_blank" rel="noopener">View on GitHub ↗</a></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="section-head reveal">
+      <div>
+        <span class="section-num">02 — More Projects</span>
+        <h2 class="section-title">Also worth a look</h2>
+      </div>
+    </div>
+    <div class="bento">
+      <div class="card-shell half">
+        <div class="card-core">
+          <div class="card-tags"><span>Pandas</span><span>SciPy</span><span>statsmodels</span></div>
+          <h3>A/B Testing — Marketing Campaign Effectiveness</h3>
+          <p>588,101-user experiment: ad group converted at 2.55% vs 1.79% control, a 43.5% relative lift whose 95% interval never crosses zero.</p>
+          <p class="limit">Profitability unanswerable — cost per impression never observed; at mid-range assumptions ROI lands at −6.1%.</p>
+          <div class="card-links"><a href="https://github.com/joshpeterpardosi/ab-test-marketing-analysis" target="_blank" rel="noopener">GitHub ↗</a></div>
+        </div>
+      </div>
+      <div class="card-shell half">
+        <div class="card-core">
+          <div class="card-tags"><span>dbt</span><span>BigQuery</span><span>scikit-learn</span></div>
+          <h3>E-Commerce ELT Pipeline &amp; Review Score Prediction</h3>
+          <p>Olist Brazilian e-commerce dataset loaded into BigQuery, modeled through dbt staging and mart layers, feeding a review-score classifier.</p>
+          <p class="limit">Accuracy 0.481, macro F1 0.310 vs a label skewed to 5 stars — Delivery Delay carries ~29% of feature importance.</p>
+          <div class="card-links"><a href="https://github.com/joshpeterpardosi/ecommerce-elt-pipeline" target="_blank" rel="noopener">GitHub ↗</a></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="skills">
+  <div class="container">
+    <div class="section-head reveal">
+      <div>
+        <span class="section-num">03 — Skills</span>
+        <h2 class="section-title">What I work with</h2>
+      </div>
+    </div>
+    <div class="bento">
+      <div class="card-shell" style="grid-column:span 12;">
+        <div class="card-core skill-card">
+          <h4>Tools &amp; Stack</h4>
+          <div class="tool-grid">
+          <div class="tool"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14.25.18l.9.2.73.26.59.3.45.32.34.34.25.34.16.33.1.3.04.26.02.2-.01.13V8.5l-.05.63-.13.55-.21.46-.26.38-.3.31-.33.25-.35.19-.35.14-.33.1-.3.07-.26.04-.21.02H8.77l-.69.05-.59.14-.5.22-.41.27-.33.32-.27.35-.2.36-.15.37-.1.35-.07.32-.04.27-.02.21v3.06H3.17l-.21-.03-.28-.07-.32-.12-.35-.18-.36-.26-.36-.36-.35-.46-.32-.59-.28-.73-.21-.88-.14-1.05-.05-1.23.06-1.22.16-1.04.24-.87.32-.71.36-.57.4-.44.42-.33.42-.24.4-.16.36-.1.32-.05.24-.01h.16l.06.01h8.16v-.83H6.18l-.01-2.75-.02-.37.05-.34.11-.31.17-.28.25-.26.31-.23.38-.2.44-.18.51-.15.58-.12.64-.1.71-.06.77-.04.84-.02 1.27.05zm-6.3 1.98l-.23.33-.08.41.08.41.23.34.33.22.41.09.41-.09.33-.22.23-.34.08-.41-.08-.41-.23-.33-.33-.22-.41-.09-.41.09zm13.09 3.95l.28.06.32.12.35.18.36.27.36.35.35.47.32.59.28.73.21.88.14 1.04.05 1.23-.06 1.23-.16 1.04-.24.86-.32.71-.36.57-.4.45-.42.33-.42.24-.4.16-.36.09-.32.05-.24.02-.16-.01h-8.22v.82h5.84l.01 2.76.02.36-.05.34-.11.31-.17.29-.25.25-.31.24-.38.2-.44.17-.51.15-.58.13-.64.09-.71.07-.77.04-.84.01-1.27-.04-1.07-.14-.9-.2-.73-.25-.59-.3-.45-.33-.34-.34-.25-.34-.16-.33-.1-.3-.04-.25-.02-.2.01-.13v-5.34l.05-.64.13-.54.21-.46.26-.38.3-.32.33-.24.35-.2.35-.14.33-.1.3-.06.26-.04.21-.02.13-.01h5.84l.69-.05.59-.14.5-.21.41-.28.33-.32.27-.35.2-.36.15-.36.1-.35.07-.32.04-.28.02-.21V6.07h2.09l.14.01zm-6.47 14.25l-.23.33-.08.41.08.41.23.33.33.23.41.08.41-.08.33-.23.23-.33.08-.41-.08-.41-.23-.33-.33-.23-.41-.08-.41.08z"/></svg><span>Python</span></div>
+          <div class="tool"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23.5594 14.7228a.5269.5269 0 0 0-.0563-.1191c-.139-.2632-.4768-.3418-1.0074-.2321-1.6533.3411-2.2935.1312-2.5256-.0191 1.342-2.0482 2.445-4.522 3.0411-6.8297.2714-1.0507.7982-3.5237.1222-4.7316a1.5641 1.5641 0 0 0-.1509-.235C21.6931.9086 19.8007.0248 17.5099.0005c-1.4947-.0158-2.7705.3461-3.1161.4794a9.449 9.449 0 0 0-.5159-.0816 8.044 8.044 0 0 0-1.3114-.1278c-1.1822-.0184-2.2038.2642-3.0498.8406-.8573-.3211-4.7888-1.645-7.2219.0788C.9359 2.1526.3086 3.8733.4302 6.3043c.0409.818.5069 3.334 1.2423 5.7436.4598 1.5065.9387 2.7019 1.4334 3.582.553.9942 1.1259 1.5933 1.7143 1.7895.4474.1491 1.1327.1441 1.8581-.7279.8012-.9635 1.5903-1.8258 1.9446-2.2069.4351.2355.9064.3625 1.39.3772a.0569.0569 0 0 0 .0004.0041 11.0312 11.0312 0 0 0-.2472.3054c-.3389.4302-.4094.5197-1.5002.7443-.3102.064-1.1344.2339-1.1464.8115-.0025.1224.0329.2309.0919.3268.2269.4231.9216.6097 1.015.6331 1.3345.3335 2.5044.092 3.3714-.6787-.017 2.231.0775 4.4174.3454 5.0874.2212.5529.7618 1.9045 2.4692 1.9043.2505 0 .5263-.0291.8296-.0941 1.7819-.3821 2.5557-1.1696 2.855-2.9059.1503-.8707.4016-2.8753.5388-4.1012.0169-.0703.0357-.1207.057-.1362.0007-.0005.0697-.0471.4272.0307a.3673.3673 0 0 0 .0443.0068l.2539.0223.0149.001c.8468.0384 1.9114-.1426 2.5312-.4308.6438-.2988 1.8057-1.0323 1.5951-1.6698zM2.371 11.8765c-.7435-2.4358-1.1779-4.8851-1.2123-5.5719-.1086-2.1714.4171-3.6829 1.5623-4.4927 1.8367-1.2986 4.8398-.5408 6.108-.13-.0032.0032-.0066.0061-.0098.0094-2.0238 2.044-1.9758 5.536-1.9708 5.7495-.0002.0823.0066.1989.0162.3593.0348.5873.0996 1.6804-.0735 2.9184-.1609 1.1504.1937 2.2764.9728 3.0892.0806.0841.1648.1631.2518.2374-.3468.3714-1.1004 1.1926-1.9025 2.1576-.5677.6825-.9597.5517-1.0886.5087-.3919-.1307-.813-.5871-1.2381-1.3223-.4796-.839-.9635-2.0317-1.4155-3.5126zm6.0072 5.0871c-.1711-.0428-.3271-.1132-.4322-.1772.0889-.0394.2374-.0902.4833-.1409 1.2833-.2641 1.4815-.4506 1.9143-1.0002.0992-.126.2116-.2687.3673-.4426a.3549.3549 0 0 0 .0737-.1298c.1708-.1513.2724-.1099.4369-.0417.156.0646.3078.26.3695.4752.0291.1016.0619.2945-.0452.4444-.9043 1.2658-2.2216 1.2494-3.1676 1.0128zm2.094-3.988-.0525.141c-.133.3566-.2567.6881-.3334 1.003-.6674-.0021-1.3168-.2872-1.8105-.8024-.6279-.6551-.9131-1.5664-.7825-2.5004.1828-1.3079.1153-2.4468.079-3.0586-.005-.0857-.0095-.1607-.0122-.2199.2957-.2621 1.6659-.9962 2.6429-.7724.4459.1022.7176.4057.8305.928.5846 2.7038.0774 3.8307-.3302 4.7363-.084.1866-.1633.3629-.2311.5454zm7.3637 4.5725c-.0169.1768-.0358.376-.0618.5959l-.146.4383a.3547.3547 0 0 0-.0182.1077c-.0059.4747-.054.6489-.115.8693-.0634.2292-.1353.4891-.1794 1.0575-.11 1.4143-.8782 2.2267-2.4172 2.5565-1.5155.3251-1.7843-.4968-2.0212-1.2217a6.5824 6.5824 0 0 0-.0769-.2266c-.2154-.5858-.1911-1.4119-.1574-2.5551.0165-.5612-.0249-1.9013-.3302-2.6462.0044-.2932.0106-.5909.019-.8918a.3529.3529 0 0 0-.0153-.1126 1.4927 1.4927 0 0 0-.0439-.208c-.1226-.4283-.4213-.7866-.7797-.9351-.1424-.059-.4038-.1672-.7178-.0869.067-.276.1831-.5875.309-.9249l.0529-.142c.0595-.16.134-.3257.213-.5012.4265-.9476 1.0106-2.2453.3766-5.1772-.2374-1.0981-1.0304-1.6343-2.2324-1.5098-.7207.0746-1.3799.3654-1.7088.5321a5.6716 5.6716 0 0 0-.1958.1041c.0918-1.1064.4386-3.1741 1.7357-4.4823a4.0306 4.0306 0 0 1 .3033-.276.3532.3532 0 0 0 .1447-.0644c.7524-.5706 1.6945-.8506 2.802-.8325.4091.0067.8017.0339 1.1742.081 1.939.3544 3.2439 1.4468 4.0359 2.3827.8143.9623 1.2552 1.9315 1.4312 2.4543-1.3232-.1346-2.2234.1268-2.6797.779-.9926 1.4189.543 4.1729 1.2811 5.4964.1353.2426.2522.4522.2889.5413.2403.5825.5515.9713.7787 1.2552.0696.087.1372.1714.1885.245-.4008.1155-1.1208.3825-1.0552 1.717-.0123.1563-.0423.4469-.0834.8148-.0461.2077-.0702.4603-.0994.7662zm.8905-1.6211c-.0405-.8316.2691-.9185.5967-1.0105a2.8566 2.8566 0 0 0 .135-.0406 1.202 1.202 0 0 0 .1342.103c.5703.3765 1.5823.4213 3.0068.1344-.2016.1769-.5189.3994-.9533.6011-.4098.1903-1.0957.333-1.7473.3636-.7197.0336-1.0859-.0807-1.1721-.151zm.5695-9.2712c-.0059.3508-.0542.6692-.1054 1.0017-.055.3576-.112.7274-.1264 1.1762-.0142.4368.0404.8909.0932 1.3301.1066.887.216 1.8003-.2075 2.7014a3.5272 3.5272 0 0 1-.1876-.3856c-.0527-.1276-.1669-.3326-.3251-.6162-.6156-1.1041-2.0574-3.6896-1.3193-4.7446.3795-.5427 1.3408-.5661 2.1781-.463zm.2284 7.0137a12.3762 12.3762 0 0 0-.0853-.1074l-.0355-.0444c.7262-1.1995.5842-2.3862.4578-3.4385-.0519-.4318-.1009-.8396-.0885-1.2226.0129-.4061.0666-.7543.1185-1.0911.0639-.415.1288-.8443.1109-1.3505.0134-.0531.0188-.1158.0118-.1902-.0457-.4855-.5999-1.938-1.7294-3.253-.6076-.7073-1.4896-1.4972-2.6889-2.0395.5251-.1066 1.2328-.2035 2.0244-.1859 2.0515.0456 3.6746.8135 4.8242 2.2824a.908.908 0 0 1 .0667.1002c.7231 1.3556-.2762 6.2751-2.9867 10.5405zm-8.8166-6.1162c-.025.1794-.3089.4225-.6211.4225a.5821.5821 0 0 1-.0809-.0056c-.1873-.026-.3765-.144-.5059-.3156-.0458-.0605-.1203-.178-.1055-.2844.0055-.0401.0261-.0985.0925-.1488.1182-.0894.3518-.1226.6096-.0867.3163.0441.6426.1938.6113.4186zm7.9305-.4114c.0111.0792-.049.201-.1531.3102-.0683.0717-.212.1961-.4079.2232a.5456.5456 0 0 1-.075.0052c-.2935 0-.5414-.2344-.5607-.3717-.024-.1765.2641-.3106.5611-.352.297-.0414.6111.0088.6356.1851z"/></svg><span>PostgreSQL</span></div>
+          <div class="tool"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0C5.363 0 0 5.363 0 12s5.363 12 12 12 12-5.363 12-12S18.637 0 12 0zM9.502 7.03a4.974 4.974 0 0 1 4.97 4.97 4.974 4.974 0 0 1-4.97 4.97A4.974 4.974 0 0 1 4.532 12a4.974 4.974 0 0 1 4.97-4.97zm6.563 3.183h2.351c.98 0 1.787.782 1.787 1.762s-.807 1.789-1.787 1.789h-2.351v-3.551z"/></svg><span>DuckDB</span></div>
+          <div class="tool"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21.333 10H24v4h-2.667ZM16 1.335h2.667v21.33H16Zm-5.333 0h2.666v21.33h-2.666ZM0 22.665V1.335h2.667v21.33zm5.333-21.33H8v21.33H5.333Z"/></svg><span>ClickHouse</span></div>
+          <div class="tool"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5.676 10.595h2.052v5.244a5.892 5.892 0 0 1-2.052-2.088v-3.156zm18.179 10.836a.504.504 0 0 1 0 .708l-1.716 1.716a.504.504 0 0 1-.708 0l-4.248-4.248a.206.206 0 0 1-.007-.007c-.02-.02-.028-.045-.043-.066a10.736 10.736 0 0 1-6.334 2.065C4.835 21.599 0 16.764 0 10.799S4.835 0 10.8 0s10.799 4.835 10.799 10.8c0 2.369-.772 4.553-2.066 6.333.025.017.052.028.074.05l4.248 4.248zm-5.028-10.632a8.015 8.015 0 1 0-8.028 8.028h.024a8.016 8.016 0 0 0 8.004-8.028zm-4.86 4.98a6.002 6.002 0 0 0 2.04-2.184v-1.764h-2.04v3.948zm-4.5.948c.442.057.887.08 1.332.072.4.025.8.025 1.2 0V7.692H9.468v9.035z"/></svg><span>BigQuery</span></div>
+          <div class="tool"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13.983 11.078h2.119a.186.186 0 00.186-.185V9.006a.186.186 0 00-.186-.186h-2.119a.185.185 0 00-.185.185v1.888c0 .102.083.185.185.185m-2.954-5.43h2.118a.186.186 0 00.186-.186V3.574a.186.186 0 00-.186-.185h-2.118a.185.185 0 00-.185.185v1.888c0 .102.082.185.185.185m0 2.716h2.118a.187.187 0 00.186-.186V6.29a.186.186 0 00-.186-.185h-2.118a.185.185 0 00-.185.185v1.887c0 .102.082.185.185.186m-2.93 0h2.12a.186.186 0 00.184-.186V6.29a.185.185 0 00-.185-.185H8.1a.185.185 0 00-.185.185v1.887c0 .102.083.185.185.186m-2.964 0h2.119a.186.186 0 00.185-.186V6.29a.185.185 0 00-.185-.185H5.136a.186.186 0 00-.186.185v1.887c0 .102.084.185.186.186m5.893 2.715h2.118a.186.186 0 00.186-.185V9.006a.186.186 0 00-.186-.186h-2.118a.185.185 0 00-.185.185v1.888c0 .102.082.185.185.185m-2.93 0h2.12a.185.185 0 00.184-.185V9.006a.185.185 0 00-.184-.186h-2.12a.185.185 0 00-.184.185v1.888c0 .102.083.185.185.185m-2.964 0h2.119a.185.185 0 00.185-.185V9.006a.185.185 0 00-.184-.186h-2.12a.186.186 0 00-.186.186v1.887c0 .102.084.185.186.185m-2.92 0h2.12a.185.185 0 00.184-.185V9.006a.185.185 0 00-.184-.186h-2.12a.185.185 0 00-.184.185v1.888c0 .102.082.185.185.185M23.763 9.89c-.065-.051-.672-.51-1.954-.51-.338.001-.676.03-1.01.087-.248-1.7-1.653-2.53-1.716-2.566l-.344-.199-.226.327c-.284.438-.49.922-.612 1.43-.23.97-.09 1.882.403 2.661-.595.332-1.55.413-1.744.42H.751a.751.751 0 00-.75.748 11.376 11.376 0 00.692 4.062c.545 1.428 1.355 2.48 2.41 3.124 1.18.723 3.1 1.137 5.275 1.137.983.003 1.963-.086 2.93-.266a12.248 12.248 0 003.823-1.389c.98-.567 1.86-1.288 2.61-2.136 1.252-1.418 1.998-2.997 2.553-4.4h.221c1.372 0 2.215-.549 2.68-1.009.309-.293.55-.65.707-1.046l.098-.288Z"/></svg><span>Docker</span></div>
+          <div class="tool"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9.71 2.136a1.43 1.43 0 0 0-2.047 0h-.007a1.48 1.48 0 0 0-.421 1.042c0 .41.161.777.422 1.039l.007.007c.257.264.616.426 1.019.426.404 0 .766-.162 1.027-.426l.003-.007c.261-.262.421-.629.421-1.039 0-.408-.159-.777-.421-1.042H9.71zM8.683 22.295c.404 0 .766-.167 1.027-.429l.003-.008c.261-.261.421-.631.421-1.036 0-.41-.159-.778-.421-1.044H9.71a1.42 1.42 0 0 0-1.027-.432 1.4 1.4 0 0 0-1.02.432h-.007c-.26.266-.422.634-.422 1.044 0 .406.161.775.422 1.036l.007.008c.258.262.617.429 1.02.429zm7.89-4.462c.359-.096.683-.33.882-.684l.027-.052a1.47 1.47 0 0 0 .114-1.067 1.454 1.454 0 0 0-.675-.896l-.021-.014a1.425 1.425 0 0 0-1.078-.132c-.36.091-.684.335-.881.686-.2.349-.241.75-.146 1.119.099.363.33.691.675.896h.002c.346.203.737.239 1.101.144zm-6.405-7.342a2.083 2.083 0 0 0-1.485-.627c-.58 0-1.103.242-1.482.627-.378.385-.612.916-.612 1.507s.233 1.124.612 1.514a2.08 2.08 0 0 0 2.967 0c.379-.39.612-.923.612-1.514s-.233-1.122-.612-1.507zm-.835-2.51c.843.141 1.6.552 2.178 1.144h.004c.092.093.182.196.265.299l1.446-.851a3.176 3.176 0 0 1-.047-1.808 3.149 3.149 0 0 1 1.456-1.926l.025-.016a3.062 3.062 0 0 1 2.345-.306c.77.21 1.465.721 1.898 1.482v.002c.431.757.518 1.626.313 2.408a3.145 3.145 0 0 1-1.456 1.928l-.198.118h-.02a3.095 3.095 0 0 1-2.154.201 3.127 3.127 0 0 1-1.514-.944l-1.444.848a4.162 4.162 0 0 1 0 2.879l1.444.846c.413-.47.939-.789 1.514-.944a3.041 3.041 0 0 1 2.371.319l.048.023v.002a3.17 3.17 0 0 1 1.408 1.906 3.215 3.215 0 0 1-.313 2.405l-.026.053-.003-.005a3.147 3.147 0 0 1-1.867 1.436 3.096 3.096 0 0 1-2.371-.318v-.006a3.156 3.156 0 0 1-1.456-1.927 3.175 3.175 0 0 1 .047-1.805l-1.446-.848a3.905 3.905 0 0 1-.265.294l-.004.005a3.938 3.938 0 0 1-2.178 1.138v1.699a3.09 3.09 0 0 1 1.56.862l.002.004c.565.572.914 1.368.914 2.243 0 .873-.35 1.664-.914 2.239l-.002.009a3.1 3.1 0 0 1-2.21.931 3.1 3.1 0 0 1-2.206-.93h-.002v-.009a3.186 3.186 0 0 1-.916-2.239c0-.875.35-1.672.916-2.243v-.004h.002a3.1 3.1 0 0 1 1.558-.862v-1.699a3.926 3.926 0 0 1-2.176-1.138l-.006-.005a4.098 4.098 0 0 1-1.173-2.874c0-1.122.452-2.136 1.173-2.872h.006a3.947 3.947 0 0 1 2.176-1.144V6.289a3.137 3.137 0 0 1-1.558-.864h-.002v-.004a3.192 3.192 0 0 1-.916-2.243c0-.871.35-1.669.916-2.243l.002-.002A3.084 3.084 0 0 1 8.683 0c.861 0 1.641.355 2.21.932v.002h.002c.565.574.914 1.372.914 2.243 0 .876-.35 1.667-.914 2.243l-.002.005a3.142 3.142 0 0 1-1.56.864v1.692zm8.121-1.129l-.012-.019a1.452 1.452 0 0 0-.87-.668 1.43 1.43 0 0 0-1.103.146h.002c-.347.2-.58.529-.677.896-.095.365-.054.768.146 1.119l.007.009c.2.347.519.579.874.673.357.103.755.059 1.098-.144l.019-.009a1.47 1.47 0 0 0 .657-.885 1.493 1.493 0 0 0-.141-1.118"/></svg><span>Kafka</span></div>
+          <div class="tool"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16.673 11.32l6.862-3.618c.233-.136.554.12.442.387L20.463 17.1zm-8.556-.229l3.473-5.187c.203-.328.578-.316.793-.028l7.886 11.75zm-3.375 7.25c-.28 0-.835-.284-.993-.716l-3.72-9.46c-.118-.331.139-.614.48-.464l19.474 10.306c-.149.147-.453.337-.72.334z"/></svg><span>Streamlit</span></div>
+          <div class="tool"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23.02 10.59a8.578 8.578 0 0 0-.862-3.034 8.911 8.911 0 0 0-1.789-2.445c.337-1.342-.413-2.505-.413-2.505-1.292-.08-2.113.4-2.416.62-.052-.02-.102-.044-.154-.064-.22-.089-.446-.172-.677-.247-.231-.073-.47-.14-.711-.197a9.867 9.867 0 0 0-.875-.161C14.557.753 12.94 0 12.94 0c-1.804 1.145-2.147 2.744-2.147 2.744l-.018.093c-.098.029-.2.057-.298.088-.138.042-.275.094-.413.143-.138.055-.275.107-.41.166a8.869 8.869 0 0 0-1.557.87l-.063-.029c-2.497-.955-4.716.195-4.716.195-.203 2.658.996 4.33 1.235 4.636a11.608 11.608 0 0 0-.607 2.635C1.636 12.677.953 15.014.953 15.014c1.926 2.214 4.171 2.351 4.171 2.351.003-.002.006-.002.006-.005.285.509.615.994.986 1.446.156.19.32.371.488.548-.704 2.009.099 3.68.099 3.68 2.144.08 3.553-.937 3.849-1.173a9.784 9.784 0 0 0 3.164.501h.08l.055-.003.107-.002.103-.005.003.002c1.01 1.44 2.788 1.646 2.788 1.646 1.264-1.332 1.337-2.653 1.337-2.94v-.058c0-.02-.003-.039-.003-.06.265-.187.52-.387.758-.6a7.875 7.875 0 0 0 1.415-1.7c1.43.083 2.437-.885 2.437-.885-.236-1.49-1.085-2.216-1.264-2.354l-.018-.013-.016-.013a.217.217 0 0 1-.031-.02c.008-.092.016-.18.02-.27.011-.162.016-.323.016-.48v-.253l-.005-.098-.008-.135a1.891 1.891 0 0 0-.01-.13c-.003-.042-.008-.083-.013-.125l-.016-.124-.018-.122a6.215 6.215 0 0 0-2.032-3.73 6.015 6.015 0 0 0-3.222-1.46 6.292 6.292 0 0 0-.85-.048l-.107.002h-.063l-.044.003-.104.008a4.777 4.777 0 0 0-3.335 1.695c-.332.4-.592.84-.768 1.297a4.594 4.594 0 0 0-.312 1.817l.003.091c.005.055.007.11.013.164a3.615 3.615 0 0 0 .698 1.82 3.53 3.53 0 0 0 1.827 1.282c.33.098.66.14.971.137.039 0 .078 0 .114-.002l.063-.003c.02 0 .041-.003.062-.003.034-.002.065-.007.099-.01.007 0 .018-.003.028-.003l.031-.005.06-.008a1.18 1.18 0 0 0 .112-.02c.036-.008.072-.013.109-.024a2.634 2.634 0 0 0 .914-.415c.028-.02.056-.041.085-.065a.248.248 0 0 0 .039-.35.244.244 0 0 0-.309-.06l-.078.042c-.09.044-.184.083-.283.116a2.476 2.476 0 0 1-.475.096c-.028.003-.054.006-.083.006l-.083.002c-.026 0-.054 0-.08-.002l-.102-.006h-.012l-.024.006c-.016-.003-.031-.003-.044-.006-.031-.002-.06-.007-.091-.01a2.59 2.59 0 0 1-.724-.213 2.557 2.557 0 0 1-.667-.438 2.52 2.52 0 0 1-.805-1.475 2.306 2.306 0 0 1-.029-.444l.006-.122v-.023l.002-.031c.003-.021.003-.04.005-.06a3.163 3.163 0 0 1 1.352-2.29 3.12 3.12 0 0 1 .937-.43 2.946 2.946 0 0 1 .776-.101h.06l.07.002.045.003h.026l.07.005a4.041 4.041 0 0 1 1.635.49 3.94 3.94 0 0 1 1.602 1.662 3.77 3.77 0 0 1 .397 1.414l.005.076.003.075c.002.026.002.05.002.075 0 .024.003.052 0 .07v.065l-.002.073-.008.174a6.195 6.195 0 0 1-.08.639 5.1 5.1 0 0 1-.267.927 5.31 5.31 0 0 1-.624 1.13 5.052 5.052 0 0 1-3.237 2.014 4.82 4.82 0 0 1-.649.066l-.039.003h-.287a6.607 6.607 0 0 1-1.716-.265 6.776 6.776 0 0 1-3.4-2.274 6.75 6.75 0 0 1-.746-1.15 6.616 6.616 0 0 1-.714-2.596l-.005-.083-.002-.02v-.056l-.003-.073v-.096l-.003-.104v-.07l.003-.163c.008-.22.026-.45.054-.678a8.707 8.707 0 0 1 .28-1.355c.128-.444.286-.872.473-1.277a7.04 7.04 0 0 1 1.456-2.1 5.925 5.925 0 0 1 .953-.763c.169-.111.343-.213.524-.306.089-.05.182-.091.273-.135.047-.02.093-.042.138-.062a7.177 7.177 0 0 1 .714-.267l.145-.045c.049-.015.098-.026.148-.041.098-.029.197-.052.296-.076.049-.013.1-.02.15-.033l.15-.032.151-.028.076-.013.075-.01.153-.024c.057-.01.114-.013.171-.023l.169-.021c.036-.003.073-.008.106-.01l.073-.008.036-.003.042-.002c.057-.003.114-.008.171-.01l.086-.006h.023l.037-.003.145-.007a7.999 7.999 0 0 1 1.708.125 7.917 7.917 0 0 1 2.048.68 8.253 8.253 0 0 1 1.672 1.09l.09.077.089.078c.06.052.114.107.171.159.057.052.112.106.166.16.052.055.107.107.159.164a8.671 8.671 0 0 1 1.41 1.978c.012.026.028.052.04.078l.04.078.075.156c.023.051.05.1.07.153l.065.15a8.848 8.848 0 0 1 .45 1.34.19.19 0 0 0 .201.142.186.186 0 0 0 .172-.184c.01-.246.002-.532-.024-.856z"/></svg><span>Grafana</span></div>
+          <div class="tool"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16.922 0h2.623v18.104h-2.623zm-4.126 12.94h2.623v2.57h-2.623zm0-7.037h2.623v5.446h-2.623zm0 11.197h2.623v5.446h-2.623zM4.456 5.896h2.622V24H4.455zm4.213 2.559h2.623v2.57H8.67zm0 4.151h2.623v5.447H8.67zm0-11.187h2.623v5.446H8.67Z"/></svg><span>Pandas</span></div>
+          <div class="tool"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M10.315 4.876L6.3048 2.8517l-4.401 2.1965 4.1186 2.0683zm1.8381.9277l4.2045 2.1223-4.3622 2.1906-4.125-2.0718zm5.6153-2.9213l4.3193 2.1658-3.863 1.9402-4.2131-2.1252zm-1.859-.9329L12.021 0 8.1742 1.9193l4.0068 2.0208zm-3.0401 16.7443V24l4.7107-2.3507-.0053-5.3085zm4.7037-4.2057l-.0052-5.2528-4.6985 2.3356v5.2546zm5.6553-.9845v5.327l-4.0178 2.0052-.0029-5.3028zm0-1.8626V6.4214l-4.0253 2.001.0034 5.2633zM11.2062 11.571L8.0333 9.9756v6.895s-3.8804-8.2564-4.2399-8.998c-.0463-.0957-.2371-.2007-.2858-.2262C2.8118 7.2812.773 6.2485.773 6.2485V18.43l2.8204 1.5076v-6.3674s3.8392 7.3775 3.878 7.458c.0389.0807.4245.8582.8362 1.1314.5485.363 2.8992 1.7766 2.8992 1.7766z"/></svg><span>NumPy</span></div>
+          <div class="tool"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15.697 13.496c-.784-1.072-1.982-1.519-3.694-1.88l-1.592-.375-1.201-.515c-.631-.446-1.17-1.634-1.017-2.681a3 3 0 0 1 3.386-2.526 2.962 2.962 0 0 1 1.962 1.155L15.35 9.05c1.033 1.33 2.195 1.727 3.459 1.098l.637-.27a.22.22 0 0 1 .278.087l.127.19a.311.311 0 0 0 .156.131.326.326 0 0 0 .33-.058l1.467-1.384c.257-.22.182-.422.182-.422l-.354-.806s-.097-.193-.431-.149l-1.968.181a.327.327 0 0 0-.27.411l.071.227c.014.047.014.1-.005.148a.219.219 0 0 1-.124.125l-.556.235c-.582.341-1.244.123-1.686-.417l-.505-.67-1.438-1.91a4.421 4.421 0 0 0-2.929-1.72C9.355 3.733 7.095 5.42 6.741 7.84c-.179 1.22.187 2.375.855 3.302.485.674 1.373 1.06 1.854 1.18l1.262.36 1.208.277c.166.04.634.155.91.255.256.092.845.31 1.324.701.572.582.875 1.413.746 2.284a2.744 2.744 0 0 1-4.897 1.255l-1.726-2.292a2.294 2.294 0 0 0-1.514-.89 2.31 2.31 0 0 0-1.708.439l-3.632 2.71A11.002 11.002 0 0 1 0 12C0 5.798 5.133.768 11.465.768c4.715 0 8.761 2.788 10.523 6.77l.581-.27.393-1.072.411.144-.353.96.98.337-.148.402-1.095-.382-.603.277c.5 1.262.778 2.632.778 4.066 0 6.203-5.135 11.232-11.467 11.232a11.526 11.526 0 0 1-9.26-4.61l3.721-2.788a.855.855 0 0 1 1.163.19l1.826 2.455a4.186 4.186 0 0 0 2.673 1.502c2.302.322 4.439-1.273 4.773-3.563a4.14 4.14 0 0 0-.664-2.922"/></svg><span>SciPy</span></div>
+          <div class="tool"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15.601 5.53c-1.91.035-3.981.91-5.63 2.56-2.93 2.93-2.083 8.53-1.088 9.525.805.804 6.595 1.843 9.526-1.088a9.74 9.74 0 0 0 .584-.643c.043-.292.205-.66.489-1.106a1.848 1.848 0 0 1-.537.176c-.144.265-.37.55-.676.855-.354.335-.607.554-.76.656a.795.795 0 0 1-.437.152c-.35 0-.514-.308-.494-.924-.22.316-.425.549-.612.7a.914.914 0 0 1-.578.224c-.194 0-.36-.09-.496-.273a1.03 1.03 0 0 1-.193-.507 4.016 4.016 0 0 1-.726.583c-.224.132-.47.197-.74.197-.3 0-.543-.096-.727-.288a.978.978 0 0 1-.257-.524v.004c-.3.276-.564.48-.79.611a1.295 1.295 0 0 1-.649.197.693.693 0 0 1-.571-.275c-.145-.183-.218-.43-.218-.739 0-.464.101-1.02.302-1.67.201-.65.445-1.25.733-1.797l.842-.312a.21.21 0 0 1 .06-.013c.063 0 .116.047.157.14.04.095.061.221.061.38 0 .451-.104.888-.312 1.31-.207.422-.532.873-.974 1.352-.018.23-.027.388-.027.474 0 .193.036.345.106.458.071.113.165.169.282.169a.71.71 0 0 0 .382-.13c.132-.084.333-.26.602-.523.028-.418.187-.798.482-1.142.324-.38.685-.569 1.08-.569.206 0 .37.054.494.16a.524.524 0 0 1 .186.417c0 .458-.486.829-1.459 1.114.088.43.32.646.693.646a.807.807 0 0 0 .417-.117c.129-.076.321-.243.575-.497.032-.252.118-.495.259-.728.182-.3.416-.544.701-.73.285-.185.537-.278.756-.278.276 0 .47.127.58.381l.677-.374h.186l-.292.971c-.15.488-.226.823-.226 1.004 0 .19.067.285.202.285.086 0 .181-.045.285-.137.104-.092.25-.232.437-.42v.001c.143-.155.274-.32.392-.494-.19-.084-.285-.21-.285-.375 0-.17.058-.352.174-.545.116-.194.275-.29.479-.29.172 0 .258.088.258.265 0 .139-.05.338-.149.596.367-.04.687-.32.961-.842l.228-.01c1.059-2.438.828-5.075-.83-6.732-1.019-1.02-2.408-1.5-3.895-1.471zm4.725 8.203a8.938 8.938 0 0 1-1.333 2.151 1.09 1.09 0 0 0-.012.147c0 .168.047.309.14.423.092.113.206.17.34.17.296 0 .714-.264 1.254-.787-.001.04-.003.08-.003.121 0 .146.012.368.036.666l.733-.172c0-.2.003-.357.01-.474.01-.157.033-.33.066-.517.02-.11.07-.216.152-.315l.186-.216a5.276 5.276 0 0 1 .378-.397c.062-.055.116-.099.162-.13a.26.26 0 0 1 .123-.046c.055 0 .083.035.083.106 0 .07-.052.236-.156.497-.194.486-.292.848-.292 1.084 0 .175.046.314.136.418a.45.45 0 0 0 .358.155c.365 0 .803-.269 1.313-.808v-.381c-.361.426-.623.64-.784.64-.109 0-.163-.067-.163-.2 0-.1.065-.316.195-.65.19-.486.285-.836.285-1.048a.464.464 0 0 0-.112-.319.36.36 0 0 0-.282-.127c-.165 0-.354.077-.567.233-.213.156-.5.436-.863.84.053-.262.165-.622.335-1.08l-.809.156a6.54 6.54 0 0 0-.399 1.074c-.04.156-.07.316-.092.48a7.447 7.447 0 0 1-.49.45.38.38 0 0 1-.229.08.208.208 0 0 1-.174-.082.352.352 0 0 1-.064-.222c0-.1.019-.214.056-.343.038-.13.12-.373.249-.731l.308-.849zm-17.21-2.927c-.863-.016-1.67.263-2.261.854-1.352 1.352-1.07 3.827.631 5.527 1.7 1.701 4.95 1.21 5.527.632.467-.466 1.07-3.827-.631-5.527-.957-.957-2.158-1.465-3.267-1.486zm12.285.358h.166v.21H15.4zm.427 0h.166v.865l.46-.455h.195l-.364.362.428.684h-.198l-.357-.575-.164.166v.41h-.166zm1.016 0h.166v.21h-.166zm.481.122h.166v.288h.172v.135h-.172v.717c0 .037.006.062.02.075.012.013.037.02.074.02a.23.23 0 0 0 .078-.01v.141a.802.802 0 0 1-.136.014.23.23 0 0 1-.15-.043.15.15 0 0 1-.052-.123v-.79h-.141v-.136h.141zm-3.562.258c.081 0 .15.012.207.038.057.024.1.061.13.11s.045.106.045.173h-.176c-.006-.111-.075-.167-.208-.167a.285.285 0 0 0-.164.041.134.134 0 0 0-.06.117c0 .035.015.065.045.088.03.024.08.044.15.06l.16.039a.47.47 0 0 1 .224.105c.047.046.07.108.07.186a.3.3 0 0 1-.052.175.327.327 0 0 1-.152.116.585.585 0 0 1-.226.041c-.136 0-.24-.03-.309-.088-.069-.059-.105-.149-.109-.269h.176c.004.037.01.065.017.084a.166.166 0 0 0 .034.054c.044.043.112.065.204.065a.31.31 0 0 0 .177-.045.139.139 0 0 0 .067-.119.116.116 0 0 0-.038-.09.287.287 0 0 0-.124-.055l-.156-.038a1.248 1.248 0 0 1-.159-.05.359.359 0 0 1-.098-.061.22.22 0 0 1-.058-.083.32.32 0 0 1-.016-.108c0-.096.036-.174.109-.232a.45.45 0 0 1 .29-.087zm1.035 0a.46.46 0 0 1 .202.043.351.351 0 0 1 .187.212.577.577 0 0 1 .023.126h-.168a.256.256 0 0 0-.078-.168.242.242 0 0 0-.17-.06.248.248 0 0 0-.155.05.306.306 0 0 0-.1.144.662.662 0 0 0-.034.224.58.58 0 0 0 .035.214.299.299 0 0 0 .101.135.261.261 0 0 0 .157.048c.142 0 .227-.084.256-.252h.167a.519.519 0 0 1-.065.22.35.35 0 0 1-.146.138.464.464 0 0 1-.216.048.448.448 0 0 1-.246-.066.441.441 0 0 1-.161-.192.703.703 0 0 1-.057-.293c0-.085.01-.163.032-.233a.522.522 0 0 1 .095-.182.403.403 0 0 1 .15-.117.453.453 0 0 1 .191-.04zm.603.03h.166v1.046H15.4zm1.443 0h.166v1.046h-.166zm-5.05.618c-.08 0-.2.204-.356.611-.155.407-.308.977-.459 1.71.281-.312.509-.662.683-1.05.175-.387.262-.72.262-.999a.455.455 0 0 0-.036-.197c-.025-.05-.056-.075-.093-.075zm4.662 1.797c-.221 0-.431.188-.629.563-.197.376-.296.722-.296 1.038 0 .12.029.216.088.29a.273.273 0 0 0 .223.111c.221 0 .43-.188.625-.565.196-.377.294-.725.294-1.043a.457.457 0 0 0-.083-.29.269.269 0 0 0-.222-.104zm-2.848.007c-.146 0-.285.11-.417.333-.133.222-.2.51-.2.866.566-.159.849-.452.849-.881 0-.212-.077-.318-.232-.318Z"/></svg><span>scikit-learn</span></div>
+          <div class="tool"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M1.713.002A1.713 1.713 0 0 0 0 1.715a1.713 1.713 0 0 0 1.713 1.713 1.713 1.713 0 0 0 1.714-1.713A1.713 1.713 0 0 0 1.713.002Zm6.861 0a1.713 1.713 0 0 0-1.713 1.713 1.713 1.713 0 0 0 1.713 1.713 1.713 1.713 0 0 0 1.713-1.713A1.713 1.713 0 0 0 8.574.002Zm6.857 0a1.713 1.713 0 0 0-1.714 1.713 1.713 1.713 0 0 0 1.714 1.713 1.713 1.713 0 0 0 1.713-1.713A1.713 1.713 0 0 0 15.431.002zm6.856 0a1.713 1.713 0 0 0-1.713 1.713 1.713 1.713 0 0 0 1.713 1.713A1.713 1.713 0 0 0 24 1.715 1.713 1.713 0 0 0 22.287.002ZM1.713 6.859A1.713 1.713 0 0 0 0 8.572a1.713 1.713 0 0 0 1.713 1.713 1.713 1.713 0 0 0 1.714-1.713A1.713 1.713 0 0 0 1.713 6.86Zm6.861 0c-.948 0-1.713.765-1.713 1.713v13.713c0 .947.765 1.713 1.713 1.713.948 0 1.713-.766 1.713-1.713V8.572c0-.948-.765-1.713-1.713-1.713zm6.857 0a1.713 1.713 0 0 0-1.714 1.713 1.713 1.713 0 0 0 1.714 1.713 1.713 1.713 0 0 0 1.713-1.713 1.713 1.713 0 0 0-1.713-1.713zm6.856 0c-.947 0-1.713.765-1.713 1.713v13.713c0 .947.766 1.713 1.713 1.713.948 0 1.713-.766 1.713-1.713V8.572c0-.948-.765-1.713-1.713-1.713zM1.713 13.715C.766 13.715 0 14.48 0 15.428v6.857c0 .947.766 1.713 1.713 1.713.948 0 1.714-.766 1.714-1.713v-6.857c0-.948-.766-1.713-1.714-1.713zm13.718 0c-.948 0-1.714.765-1.714 1.713v6.857c0 .947.766 1.713 1.714 1.713.947 0 1.713-.766 1.713-1.713v-6.857c0-.948-.766-1.713-1.713-1.713z"/></svg><span>Plotly</span></div>
+          <div class="tool"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .0387C5.3729.0384.0003 5.3931 0 11.9988c-.001 6.6066 5.372 11.9628 12 11.9625 6.628.0003 12.001-5.3559 12-11.9625-.0003-6.6057-5.3729-11.9604-12-11.96m-.829 5.4153h7.55l-7.5805 5.3284h5.1828L5.279 18.5436q2.9466-6.5444 5.892-13.0896"/></svg><span>FastAPI</span></div>
+          <div class="tool"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M11.883.002a12.044 12.044 0 0 0-9.326 19.463l3.668-2.694A7.573 7.573 0 0 1 12.043 4.45v2.867l6.908-5.14A12.012 12.012 0 0 0 11.883.002zm9.562 4.533L17.777 7.23a7.573 7.573 0 0 1-5.818 12.322v-2.867l-6.908 5.14a12.046 12.046 0 0 0 16.394-17.29z"/></svg><span>MLflow</span></div>
+          <div class="tool"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7.157 22.201A1.784 1.799 0 0 1 5.374 24a1.784 1.799 0 0 1-1.784-1.799 1.784 1.799 0 0 1 1.784-1.799 1.784 1.799 0 0 1 1.783 1.799zM20.582 1.427a1.415 1.427 0 0 1-1.415 1.428 1.415 1.427 0 0 1-1.416-1.428A1.415 1.427 0 0 1 19.167 0a1.415 1.427 0 0 1 1.415 1.427zM4.992 3.336A1.047 1.056 0 0 1 3.946 4.39a1.047 1.056 0 0 1-1.047-1.055A1.047 1.056 0 0 1 3.946 2.28a1.047 1.056 0 0 1 1.046 1.056zm7.336 1.517c3.769 0 7.06 1.38 8.768 3.424a9.363 9.363 0 0 0-3.393-4.547 9.238 9.238 0 0 0-5.377-1.728A9.238 9.238 0 0 0 6.95 3.73a9.363 9.363 0 0 0-3.394 4.547c1.713-2.04 5.004-3.424 8.772-3.424zm.001 13.295c-3.768 0-7.06-1.381-8.768-3.425a9.363 9.363 0 0 0 3.394 4.547A9.238 9.238 0 0 0 12.33 21a9.238 9.238 0 0 0 5.377-1.729 9.363 9.363 0 0 0 3.393-4.547c-1.712 2.044-5.003 3.425-8.772 3.425Z"/></svg><span>Jupyter</span></div>
+          <div class="tool"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13.09 23.549a1.54 1.54 0 0 1-2.18 0L.451 13.089a1.54 1.54 0 0 1 0-2.179l7.191-7.19 2.733 2.733a1.85 1.85 0 0 0 .964 2.326v6.66a1.849 1.849 0 1 0 1.54 0V8.957l2.508 2.508a1.85 1.85 0 1 0 1.09-1.09l-2.634-2.634a1.85 1.85 0 0 0-2.378-2.377L8.73 2.63 10.91.451a1.54 1.54 0 0 1 2.179 0l10.459 10.46a1.54 1.54 0 0 1 0 2.179z"/></svg><span>Git</span></div>
+          <div class="tool"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg><span>GitHub</span></div>
+          <div class="tool"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.1113 0a3.283 3.283 0 0 0-1.746.5508 8.4362 8.4362 0 0 0-2.7481 2.543 6.7216 6.7216 0 0 1-1.3438 0c-.3202 0-.7887.209-.5742.9628.2146.7538.798 1.4973.75 1.9239a3.6987 3.6987 0 0 0-.0683.8047c-.2979.4714-1.6906 2.743-2.1133 4.5488 0 0 .7957-7.967-1.6446-9.33C5.1828.6406 3.219 1.7271 2.5625 3.5233c-1.4027 3.833.6752 9.8253 3.6055 14.6621 2.9302 4.837 5.7128 5.7083 7.6855 5.795 3.2985.1443 2.3385-.57 3.5235-.6407 1.1848-.0705 1.0116.6411 2.9843.3653 1.438-.2085 1.685-1.1705 1.1407-1.6035-.5445-.433-.3626-1.4832.1562-3.7188.5188-2.2356-.224-6.17-.746-7.1836-.522-1.0136-.4643-1.5298.0897-2.5273a6.2125 6.2125 0 0 0 .8497-2.5059 3.858 3.858 0 0 0 0-1.043.0703.0703 0 0 0 0-.0214v-.0508s-.3439 1.3752-1.0196 1.8691a9.8362 9.8362 0 0 0-.3203.2442c.0673-.2566.3209-1.34-.041-1.9239 0 0-.1508 2.4876-1.4766 2.6192-1.3258.1315-3.202-1.2243-3.7304-1.7696.0385.21.0682.268.1093.4297.044.1514.0957.2998.1563.4453.1857.5999.3837 1.5177.086 2.0918-.4644.911-1.4756 2.313-1.3731 4.3145a8.4896 8.4896 0 0 0 .8027 3.5273c.3907.988.4929 1.8995.416 2.0567-.0768.1571.027.9613-1.8144-.418-1.8414-1.3792-2.338-2.8066-2.338-2.8066a5.9008 5.9008 0 0 0-.3358 2.496 15.5107 15.5107 0 0 0 .7773 3.5606s-2.4149-1.9574-2.543-5.877c-.1217-3.602 1.986-7.7686 2.3223-8.4101.0652.1444.1618.2733.2832.375.1214.1016.2645.1743.418.2129 0 0-.9392-.5175-.254-2.5254.6854-2.0079 2.0667-3.7942 3.463-4.58a3.9939 3.9939 0 0 1 3.871-.1973A3.2807 3.2807 0 0 0 17.377.0059 3.2584 3.2584 0 0 0 17.1113 0Zm-1.3906 1.8652a1.1517 1.1517 0 0 0-.2207.0254c-.3523.077-.5402.49-.2969 1a.8232.8232 0 0 1 .0664.3614.8266.8266 0 0 1-.0957.3554 4.9858 4.9858 0 0 1 .9102-.7168 4.3949 4.3949 0 0 1 1.2168-.4394 1.4291 1.4291 0 0 1-.7246-.2207 1.1402 1.1402 0 0 0-.4922-.3125 1.1424 1.1424 0 0 0-.3633-.0528Zm4.8711.1739c-.5036 0-1.1723.1135-1.6875.3164a1.3396 1.3396 0 0 0-.7617.5625c-.2786.6415 1.4175 1.7047 2.0996 1.5058.3202-.093.7957-.7883 1.0039-1.3945.141-.433.1598-.8185-.0996-.918-.1311-.049-.3258-.0722-.5547-.0722zm.2246 5.33s-.3464 1.1811-.5898 1.7168c-.2114.4747-.2786.4357-.4356.4903a4.3875 4.3875 0 0 0 .1758-.664c.0929-.3914 0-.4942 0-.4942a4.1717 4.1717 0 0 1-.4629 1.2832 1.0077 1.0077 0 0 1-.6406.039c-.2594-.1058-.3047-1.3259-.3047-1.3964a2.5126 2.5126 0 0 0 1.2559-.1915 2.5196 2.5196 0 0 0 1.002-.7832Z"/></svg><span>DBeaver</span></div>
+          </div>
+          <p style="margin-top:16px;font-size:13px;color:var(--text-faint);">Also working with — dbt, Dagster, Evidently, Pandera, XGBoost, LightGBM, Matplotlib, Seaborn, statsmodels, VS Code, Google Colab, Power BI, Tableau Public, Excel</p>
+        </div>
+      </div>
+      <div class="card-shell big">
+        <div class="card-core skill-card">
+          <h4>Core Skills</h4>
+          <p>Data Cleaning, Exploratory Data Analysis, Hypothesis Testing, A/B Testing, Time Series Forecasting, ETL, Window Functions, CTEs, Dashboard Development, Data Storytelling, MLOps (Dagster, MLflow, Evidently), API Development (FastAPI), Data Quality &amp; Validation (Pandera), Event Streaming (Kafka)</p>
+        </div>
+      </div>
+      <div class="card-shell small">
+        <div class="card-core skill-card accent">
+          <h4>Certifications</h4>
+          <span class="stat-big">15</span>
+          <p>Courses completed at DataCamp &amp; Dicoding Indonesia — SQL, Python, data processing, visualization, machine learning fundamentals.</p>
+          <div class="card-links"><a href="https://www.linkedin.com/in/josh-peter-pardosi-44ab612aa/details/certifications/" target="_blank" rel="noopener">Verify on LinkedIn ↗</a></div>
+        </div>
+      </div>
+      <div class="card-shell" style="grid-column:span 12;">
+        <div class="card-core skill-card">
+          <h4>Languages</h4>
+          <p>English — Professional working proficiency &nbsp;·&nbsp; Indonesian — Native</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="about">
+  <div class="container">
+    <div class="reveal" style="margin-bottom:44px;">
+      <span class="section-num">04 — About</span>
+      <h2 class="about-heading">From mathematics to data.</h2>
+    </div>
+    <div class="about-grid">
+      <div class="reveal">
+        <div class="about-portrait"><img src="assets/about-teaching.jpeg" alt="A UTBK/SNBT mathematics session at SMA Unggul Del, taught through Bimbel Talenta Medan, 2026"></div>
+        <p class="about-caption">A UTBK/SNBT mathematics session at SMA Unggul Del — taught through Bimbel Talenta Medan, 2026</p>
+      </div>
+      <div class="about-body reveal">
+        <p>My background is mathematics. Studying it, and then spending over two years teaching UTBK/SNBT mathematics to more than twenty students at <strong>Bimbel Talenta Medan</strong> — including sessions at SMA Unggul Del through the two institutions' partnership — trained two things I still rely on every day: <strong>working a problem in steps that can be checked</strong>, and explaining a quantitative result to someone who has no reason to trust it yet.</p>
+        <p>Data is where I spend my time now, and where I want my career to go. Most of that time goes into <strong>SQL and Python</strong> — pulling the data, cleaning it, testing whether a difference is real, then building the dashboard that makes the answer obvious.</p>
+        <p>Alongside it I've been learning to work with AI tools, which I treat as part of adapting to how this field actually operates today: I use them for code and for pressure-testing my own reasoning, and verify what they return before it counts. What I'm looking for is a <strong>Data Analyst or Data Scientist internship</strong> where all of this runs on data a team actually depends on.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="contact">
+  <div class="container">
+    <div class="contact-shell reveal">
+      <div class="contact-core">
+        <span class="glass-blob blob-a"></span>
+        <span class="glass-blob blob-b"></span>
+        <div class="contact-inner">
+        <h2>Open for a data internship.</h2>
+        <p class="contact-sub">Data Analyst or Data Scientist — happy to walk through any project here: the methods, the numbers, and where each one falls short.</p>
+        <a class="btn-primary" href="mailto:itsjoshpeter@gmail.com" style="margin:0 auto;">
+          Send an email
+          <span class="icon-wrap">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M7 17L17 7M17 7H9M17 7V15"/></svg>
+          </span>
+        </a>
+
+        <div class="contact-links">
+          <a href="https://www.linkedin.com/in/josh-peter-pardosi-44ab612aa/" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+            LinkedIn
+          </a>
+          <a href="https://github.com/joshpeterpardosi" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+            GitHub
+          </a>
+          <a href="https://drive.google.com/file/d/1CFjbA9SSnH6z_P5UXqEPdtS3azNIEM0c/view?usp=drive_link" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6zm0 2.5L17.5 8H14V4.5zM8 13h8v1.5H8V13zm0 3.5h8V18H8v-1.5zm0-7h4V11H8V9.5z"/></svg>
+            Resume
+          </a>
+        </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="container">
+  <span>© 2026 Josh Peter Pardosi</span>
+  <span><a href="https://github.com/joshpeterpardosi" target="_blank" rel="noopener">GitHub</a> · <a href="https://www.linkedin.com/in/josh-peter-pardosi-44ab612aa/" target="_blank" rel="noopener">LinkedIn</a> · <a href="https://drive.google.com/file/d/1CFjbA9SSnH6z_P5UXqEPdtS3azNIEM0c/view?usp=drive_link" target="_blank" rel="noopener">Resume</a> · <a href="mailto:itsjoshpeter@gmail.com">Email</a></span>
 </footer>
 
 <script>
-(function(){
-  var params = new URLSearchParams(window.location.search);
-  if (params.get('print') === '1') {
-    document.body.classList.add('print-mode');
-  }
-
-  var els = document.querySelectorAll('.reveal');
-  if (!('IntersectionObserver' in window)) {
-    els.forEach(function(el){ el.classList.add('in'); });
-  } else {
-    var io = new IntersectionObserver(function(entries){
-      entries.forEach(function(e){
-        if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
-      });
-    }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
-    els.forEach(function(el){ io.observe(el); });
-  }
-
-  var links = Array.prototype.slice.call(document.querySelectorAll('.nav-links a'));
-  var targets = links.map(function(a){ return document.querySelector(a.getAttribute('href')); });
-  function sync(){
-    var y = window.scrollY + 140, active = -1;
-    var atBottom = window.innerHeight + window.scrollY >= document.body.offsetHeight - 2;
-    if (atBottom) {
-      active = targets.length - 1;
-    } else {
-      targets.forEach(function(t, i){ if (t && t.offsetTop <= y) active = i; });
+const io = new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      e.target.classList.add('in-view');
+      io.unobserve(e.target);
     }
-    links.forEach(function(a, i){ a.classList.toggle('is-active', i === active); });
-  }
-  window.addEventListener('scroll', sync, { passive:true });
-  sync();
-})();
+  });
+},{threshold:0.15});
+document.querySelectorAll('.reveal, .card-shell').forEach(el=>io.observe(el));
+
+const navToggle = document.getElementById('navToggle');
+const mobileMenu = document.getElementById('mobileMenu');
+navToggle.addEventListener('click', ()=>{
+  navToggle.classList.toggle('active');
+  mobileMenu.classList.toggle('active');
+});
+mobileMenu.querySelectorAll('a').forEach(a=>a.addEventListener('click', ()=>{
+  navToggle.classList.remove('active');
+  mobileMenu.classList.remove('active');
+}));
+
+// hide the nav while scrolling down, bring it back on scroll up
+const nav = document.querySelector('nav');
+if('scrollRestoration' in history) history.scrollRestoration = 'manual';
+let lastY = window.scrollY;
+let ticking = false;
+window.addEventListener('scroll', ()=>{
+  if(ticking) return;
+  ticking = true;
+  requestAnimationFrame(()=>{
+    const y = window.scrollY;
+    const menuOpen = mobileMenu.classList.contains('active');
+    if(!menuOpen && y > 240 && y > lastY + 6){
+      nav.classList.add('nav-hidden');
+    }else if(y < lastY - 6 || y <= 240){
+      nav.classList.remove('nav-hidden');
+    }
+    lastY = y;
+    ticking = false;
+  });
+}, {passive:true});
 </script>
 
 </body>
