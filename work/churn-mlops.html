@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Churn MLOps Pipeline — Josh Peter Pardosi</title>
+<meta name="description" content="Case study: a churn prediction and MRR forecasting pipeline with a cost-chosen decision threshold, MLflow promotion, FastAPI serving, and drift-triggered retraining.">
+<link rel="canonical" href="https://joshpeterpardosi.github.io/joshpeterpardosi-portfolio/work/churn-mlops.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Josh Peter Pardosi">
+<meta property="og:title" content="Churn MLOps Pipeline — case study">
+<meta property="og:description" content="Why the churn model's threshold sits at 0.25, not 0.5: recall 0.51 → 0.80 under a precision floor — plus where the pipeline still falls short.">
+<meta property="og:url" content="https://joshpeterpardosi.github.io/joshpeterpardosi-portfolio/work/churn-mlops.html">
+<meta property="og:image" content="https://joshpeterpardosi.github.io/joshpeterpardosi-portfolio/assets/project-churn-mlops.jpg">
+<meta property="og:image:width" content="2394">
+<meta property="og:image:height" content="1612">
+<meta property="og:image:alt" content="FastAPI service returning a live churn prediction">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Churn MLOps Pipeline — case study">
+<meta name="twitter:description" content="Why the churn model's threshold sits at 0.25, not 0.5: recall 0.51 → 0.80 under a precision floor — plus where the pipeline still falls short.">
+<meta name="twitter:image" content="https://joshpeterpardosi.github.io/joshpeterpardosi-portfolio/assets/project-churn-mlops.jpg">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='16' fill='%23111114'/%3E%3Ctext x='50' y='70' font-size='60' font-family='Helvetica,sans-serif' font-weight='700' fill='%23ffffff' text-anchor='middle'%3EJ%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/site.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap case header-row">
+    <a class="nav-link" href="../index.html#work" style="padding-left:0">← All work</a>
+    <span class="kicker">Case study · 01</span>
+  </div>
+</header>
+
+<main class="wrap case">
+
+<section class="case-hero">
+  <p class="kicker">MLOps · SaaS subscription business</p>
+  <h1>Churn prediction &amp; revenue forecasting, retrained when the data drifts</h1>
+  <p class="lede">One pipeline for two models — data, train, track, serve, monitor, retrain — where the churn model's decision threshold is chosen from what each kind of error costs, not left at the library default.</p>
+  <div class="case-meta">
+    <div class="meta-item"><span>Role</span><span>Solo — design, build, test</span></div>
+    <div class="meta-item"><span>Timeline</span><span>Aug – Sep 2026</span></div>
+    <div class="meta-item"><span>Stack</span><span>Dagster, MLflow, LightGBM, FastAPI, Evidently, Docker</span></div>
+    <div class="meta-item"><span>Code</span><a href="https://github.com/joshpeterpardosi/churn-mlops-forecasting-ops" target="_blank" rel="noopener">GitHub repo ↗</a></div>
+  </div>
+  <img src="../assets/project-churn-mlops.jpg" alt="FastAPI service returning a live churn prediction" width="2394" height="1612">
+</section>
+
+<section class="case-section">
+  <p class="kicker">1 — The question</p>
+  <h2>Which customers are about to leave, and what does that do to revenue?</h2>
+  <p>A SaaS business needs both answers on an ongoing basis, not once in a notebook. So the goal was a full loop: churn labels from the Kaggle Telco dataset, a synthetic MRR series aligned to its customer cohorts, and two models that keep themselves current when incoming data stops looking like training data.</p>
+</section>
+
+<section class="case-section">
+  <p class="kicker">2 — The pipeline</p>
+  <div class="flow">
+    <div class="flow-step"><span>01 · Dagster</span><strong>Ingest &amp; validate</strong><span>Raw assets → validated → feature table</span></div>
+    <div class="flow-step"><span>02 · LightGBM</span><strong>Train</strong><span>Churn classifier + MRR forecast on lag features</span></div>
+    <div class="flow-step"><span>03 · MLflow</span><strong>Promote</strong><span>Better metric takes the production alias</span></div>
+    <div class="flow-step"><span>04 · FastAPI</span><strong>Serve</strong><span>/predict/churn and /forecast/mrr in Docker</span></div>
+    <div class="flow-step loop"><span>05 · Evidently</span><strong>Monitor</strong><span>Drift sensor fires a retrain run → back to 02</span></div>
+  </div>
+</section>
+
+<section class="case-section">
+  <p class="kicker">3 — The decision that mattered</p>
+  <h2>0.5 is a library default, not a decision</h2>
+  <p>At the default threshold the model missed roughly half of the customers who actually churned. A missed churner loses the account; a false alarm costs one retention call. Pricing a miss at ten false alarms and minimising expected cost pointed to a threshold of 0.07 — which flags 58.6% of healthy customers. A list that long gets ignored, so the saving never arrives.</p>
+  <p>The fix was to minimise cost <strong>subject to a precision floor of 0.50</strong>: at least half of flagged accounts must be real churners. That lands at 0.25. The 10:1 ratio is an assumption, not a measurement — when real costs exist, it is one constant to change. The threshold is stored with the model, so serving applies the point training chose.</p>
+  <table class="compare">
+    <thead><tr><th>Metric</th><th>At 0.50 (default)</th><th>At 0.25 (chosen)</th></tr></thead>
+    <tbody>
+      <tr><td>Recall</td><td class="n">0.505</td><td class="n up">0.802</td></tr>
+      <tr><td>Precision</td><td class="n">0.652</td><td class="n down">0.500</td></tr>
+      <tr><td>Accuracy</td><td class="n">0.797</td><td class="n down">0.735</td></tr>
+      <tr><td>ROC-AUC</td><td class="n">0.840</td><td class="n">0.840</td></tr>
+    </tbody>
+  </table>
+  <p>ROC-AUC is threshold-free, and the registry still ranks versions by it — so choosing an operating point can't game the promotion gate.</p>
+</section>
+
+<section class="case-section">
+  <p class="kicker">4 — What it doesn't do yet</p>
+  <div class="rl">
+    <div class="box box-limit">
+      <span class="box-label">Limit</span>
+      <span class="box-text">The forecast's RMSE (38.96) barely beats a naive last-month baseline (39.06). Holding out each customer's final month puts almost every churn-to-zero event in test — about 94 in training against 1,272 in test, which carry 99.8% of the squared error.</span>
+    </div>
+    <div class="box box-limit">
+      <span class="box-label">Limit</span>
+      <span class="box-text">At the chosen point, half of the flagged accounts are false alarms. That is the floor by construction — acceptable for a phone call, not for an expensive retention offer.</span>
+    </div>
+  </div>
+  <div class="box box-result">
+    <span class="box-label">Verified</span>
+    <span class="box-text">107 tests run standalone in CI using tmp_path and mocks — no dataset or trained model needed. The screenshot above is a live response from the running API.</span>
+  </div>
+</section>
+
+<nav class="case-nav" aria-label="Case study navigation">
+  <a href="../index.html#work">← Back to all work</a>
+  <a href="https://github.com/joshpeterpardosi/churn-mlops-forecasting-ops/blob/main/docs/design/2026-08-16-churn-operating-point.md" target="_blank" rel="noopener">Full design note on GitHub ↗</a>
+</nav>
+
+</main>
+
+<footer class="wrap case site-footer">
+  <span>© 2026 Josh Peter Pardosi</span>
+  <a href="mailto:itsjoshpeter@gmail.com">itsjoshpeter@gmail.com</a>
+</footer>
+
+</body>
+</html>
