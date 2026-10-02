@@ -36,7 +36,7 @@
 | **CSS3** | Layout, typography, and responsive design (`assets/site.css`) |
 | **GitHub Pages** | Static hosting directly from this repository |
 
-No frameworks, no JavaScript, and no build step — `index.html`, a case study page in `work/`, and an `assets/` folder.
+No frameworks, no JavaScript, and no build step — `index.html`, two case study pages in `work/`, and an `assets/` folder.
 
 ---
 
