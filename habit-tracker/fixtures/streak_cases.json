@@ -1,0 +1,12 @@
+{
+  "habits": [
+    {"habit_id": "gap", "name": "Missed a day", "created_at": "2026-10-01",
+     "check_ins": ["2026-10-01", "2026-10-02", "2026-10-03", "2026-10-05"]},
+    {"habit_id": "unbroken", "name": "Every day", "created_at": "2026-10-01",
+     "check_ins": ["2026-10-01", "2026-10-02", "2026-10-03", "2026-10-04", "2026-10-05"]},
+    {"habit_id": "yesterday", "name": "Ends yesterday", "created_at": "2026-10-01",
+     "check_ins": ["2026-10-02", "2026-10-03", "2026-10-04"]},
+    {"habit_id": "stale", "name": "Last check-in 2 days ago", "created_at": "2026-10-01",
+     "check_ins": ["2026-10-01", "2026-10-02", "2026-10-03"]}
+  ]
+}

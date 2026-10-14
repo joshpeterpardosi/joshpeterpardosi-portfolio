@@ -5,3 +5,5 @@
 # graphify output — local learning/interview prep, never pushed
 graphify-out/
 *-summary.md
+
+__pycache__/
